@@ -22,18 +22,11 @@ const handleSubmit = event =>{
     
 }
 
-// const validated = event =>{
-//     if (formState.password === formState.passwordConfirm){
-//         formState.valid=true
-//     }
-// }
-
   return (
-
     
     <div>Signin  here
       
-        <form onSubmit={formState.password===formState.passwordConfrim?handleSubmit:''}>
+        <form onSubmit={formState.password===formState.passwordConfirm?handleSubmit:''}>
 
             <label htmlFor="username">Username: </label>
             <input 
@@ -49,17 +42,19 @@ const handleSubmit = event =>{
                 onChange={handleChange}
                 value={formState.password} />
 
-            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <label htmlFor="passwordConfirm">Confirm Password:</label>
             <input 
-                id="password" 
+                id="passwordConfirm" 
                 type="password"
                 onChange={handleChange}
-                value={formState.confirmPassword} />
+                value={formState.passwordConfirm} />
 
 
-             <p className={formState.valid ===true?'valid':'invalid'}
-                onChange={formState.password=== formState.passwordConfirm?formState.valid:''}>{formState.valid===true?"Passwords Match":"Passwords Do Not Match"}</p> 
-                 
+        <p className={formState.valid ===true?'valid':'invalid'}
+            onChange={formState.password=== formState.passwordConfirm?!formState.valid:''}  
+            >
+                {formState.valid===true?"Passwords Match":"Passwords Do Not Match"}</p> 
+
              <button type="submit">Sign Up</button> 
         </form>
     </div>
