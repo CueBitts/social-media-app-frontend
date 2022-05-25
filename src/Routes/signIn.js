@@ -1,9 +1,8 @@
 import React from 'react'
-import Header from '../Components/Header'
+
 
 function Signin() {
 
-    <Header />
     const initialState ={username:'', password:''}
     const [formState, setFormState]=useState(initialState);
     
