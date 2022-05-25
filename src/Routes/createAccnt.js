@@ -58,11 +58,12 @@ function Createaccnt() {
              <button type="submit">Create Account</button>   
              <p>{formState.password===formState.passwordConfirm?"Confirmed" : "Retry"}</p>
 
-              <div>
-                <Link to ='/'> Home </Link>
-                
-              </div>
-        </form>
+            <div>
+              <p>Already have account?</p><Link to ='/signin'> Sign In </Link>
+
+            </div>
+            </form>
+             
 
     </div>
   )
