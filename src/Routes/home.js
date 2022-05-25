@@ -1,12 +1,20 @@
 import React from 'react'
-import Header from '../Components/Header'
+import { useParams } from 'react-router-dom'
 
-function home() {
-  return (
-    <div>home
-        <Header />
-    </div>
-  )
-}
+function Home(props) {
+    console.log(props)
+    const { id } = useParams()
+    const posts = props.posts
+    const post = posts.find(p => p._id === id)
+  
+    return (
+        <div className="post">
+          <h1>Show Page</h1>
+            <h2>{post.userId}</h2>
+            <h2>{post.text}</h2>
+            <img src={post.pic}  />
+        </div>
+    )
+  }
 
-export default home
+export default Home
