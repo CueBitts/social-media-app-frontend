@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form {
+  
+  border: 2px solid orange;
+  margin: auto;
+  max-width: 300px;
+  text-align: left;
+  padding: 30px;
+  background: white;
+}
+
+body{
+  background: url(/images/pexels-cottonbro-5052880.jpg) ;
+  background-size:50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title{
+  color:red;
+}
