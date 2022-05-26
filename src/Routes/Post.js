@@ -3,29 +3,29 @@ import { Link } from 'react-router-dom';
 import './Post.css'
 
 
-function Home(props) {
-    console.log(props)
-    const [newForm, setNewForm] = useState({
-            userId: "",
-            text: "",
-            pic: "",
-            comments: "",
-    });
+function Post(props) {
+    console.log(props.posts)
+    // const [newForm, setNewForm] = useState({
+    //         userId: "",
+    //         text: "",
+    //         pic: "",
+    //         comments: "",
+    // });
 
-    const handleChange = (event) => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value });
-    };
+    // const handleChange = (event) => {
+    //     setNewForm({ ...newForm, [event.target.name]: event.target.value });
+    // };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.createPost(newForm);
-        setNewForm({
-            userId: "",
-            text: "",
-            pic: "",
-            comments: "",
-        });
-    };
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     props.createPost(newForm);
+    //     setNewForm({
+    //         userId: "",
+    //         text: "",
+    //         pic: "",
+    //         comments: "",
+    //     });
+    // };
 
     const loaded = () => {
         return props.posts.map((post) => (
@@ -54,42 +54,43 @@ function Home(props) {
         return <h1>Loading.........</h1>
     }
 
-    return (
-        <section>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={newForm.userId}
-                    name="userId"
-                    placeholder="userId"
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    value={newForm.text}
-                    name="text"
-                    placeholder="text"
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    value={newForm.pic}
-                    name="pic"
-                    placeholder="pic"
-                    onChange={handleChange}
-                />
-                  <input
-                    type="text"
-                    value={newForm.comment}
-                    name="comment"
-                    placeholder="comment"
-                    onChange={handleChange}
-                />
-                <input type="submit" value="Create Post" />
-            </form>
-            {props.posts ? loaded() : loading()}
-        </section>
-    )
+    // return (
+    //     <section>
+    //         <form onSubmit={handleSubmit}>
+    //             <input
+    //                 type="text"
+    //                 value={newForm.userId}
+    //                 name="userId"
+    //                 placeholder="userId"
+    //                 onChange={handleChange}
+    //             />
+    //             <input
+    //                 type="text"
+    //                 value={newForm.text}
+    //                 name="text"
+    //                 placeholder="text"
+    //                 onChange={handleChange}
+    //             />
+    //             <input
+    //                 type="text"
+    //                 value={newForm.pic}
+    //                 name="pic"
+    //                 placeholder="pic"
+    //                 onChange={handleChange}
+    //             />
+    //               <input
+    //                 type="text"
+    //                 value={newForm.comment}
+    //                 name="comment"
+    //                 placeholder="comment"
+    //                 onChange={handleChange}
+    //             />
+    //             <input type="submit" value="Create Post" />
+    //         </form>
+    //         {props.posts ? loaded() : loading()}
+    //     </section>
+    // )
+    return (<div>{props.posts ? loaded() : loading()}</div>)
 }
 
-export default Home
+export default Post
