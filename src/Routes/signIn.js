@@ -1,15 +1,24 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Header from '../Components/Header'
 import '../index.css'
+
 
 function Signin() {
     const initialState ={
         username:'', 
         password:'',
-        passwordConfirm:'',
-        message:''}
+         }
 
-const [formState, setFormState]=useState(initialState);
+const [logIn, setLogIn]=useState([]);
+const [formState, setFormState]=useState(initialState)
+
+const url = "https://localhost:4000/users"
+
+const getUser = () => {
+    fetch(url)
+    .then(res=>res.json())
+    .then(resp=>setLogIn(resp))
+}
 
 const handleChange = event =>{
         setFormState({...formState, 
@@ -20,17 +29,19 @@ const handleSubmit = event =>{
         event.preventDefault();
         setFormState(initialState)
 }
-    
+
+useEffect(()=>{
+     getUser();
+    },[])
+
     return (
-        
-        
-        <div>Sign in here
-        <Header />
-      
-        <form className='form' 
-            onSubmit={formState.password===formState.passwordConfirm 
-                    ? handleSubmit 
-                    : ""}>
+        <div>
+            <h2 className='title'>Sign in here</h2>
+
+            <Header />
+      {/* formState.username==={logIn.username} && formState.password==={logIn.password}?handleSubmit:: ""  */}
+                   
+        <form className='form'> 
             
             <label htmlFor="username">Username: </label>
             <input 
@@ -39,6 +50,7 @@ const handleSubmit = event =>{
                 onChange={handleChange}
                 value={formState.username} />
 
+                {console.log(formState.username)}
             <label htmlFor="password">Password:</label>
             <input 
                 id="password" 
@@ -47,9 +59,8 @@ const handleSubmit = event =>{
                 value={formState.password} />
                 <br/>
             
-    
              <button type="submit">Login</button>   
-             <p>{formState.password===formState.passwordConfirm?"Confirmed" : "Retry"}</p>
+             {/* <p>{formState.password===formState.passwordConfirm?"Confirmed" : "Retry"}</p> */}
 
         </form>
     </div>

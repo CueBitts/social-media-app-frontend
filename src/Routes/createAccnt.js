@@ -5,7 +5,8 @@ import '../index.css'
 
 function Createaccnt() {
         const initialState ={
-              username:'', 
+              username:'',
+              profilepic:'', 
               password:'',
               passwordConfirm:'',
               message:''}
@@ -37,6 +38,14 @@ function Createaccnt() {
                 type="text"
                 onChange={handleChange}
                 value={formState.username} />
+                <br/>
+
+            <label htmlFor="profilepic">Profile Picture Link: </label>
+            <input 
+                id="profilepic" 
+                type="text"
+                onChange={handleChange}
+                value={formState.profilepic} />
 
             <label htmlFor="password">Password:</label>
             <input 
@@ -59,7 +68,7 @@ function Createaccnt() {
              <p>{formState.password===formState.passwordConfirm?"Confirmed" : "Retry"}</p>
 
             <div>
-              <p>Already have account?</p><Link to ='/signin'> Sign In </Link>
+              <p>Already have account?<Link to ='/signin'> Sign In </Link></p>
 
             </div>
             </form>
