@@ -5,7 +5,9 @@ function Header() {
 
   return (
     <div>
-       Header
+        <Link to="/">
+            <div>Social Media App</div>
+        </Link>
         
     </div>
   )
