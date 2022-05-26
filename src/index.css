@@ -20,6 +20,7 @@ code {
   text-align: left;
   padding: 30px;
   background: white;
+  color: black;
 }
 
 body{
@@ -31,4 +32,8 @@ body{
 
 .title{
   color:red;
+}
+
+label, button, input {
+  color: black;
 }

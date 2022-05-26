@@ -1,4 +1,3 @@
-import React from 'react'
 import React, {useEffect, useState} from 'react'
 import Header from '../Components/Header'
 import '../index.css'
@@ -10,20 +9,18 @@ function Signin() {
         password:'',
          }
 
-const [logIn, setLogIn]=useState([]);
+const [logIn, setLogIn]=useState('');
 const [formState, setFormState]=useState(initialState)
 
-const url = "https://localhost:4000/users"
+const url = "http://localhost:4000/users/"
 
 const getUser = () => {
     fetch(url)
     .then(res=>res.json())
-    .then(resp=>setLogIn(resp))
+    .then((data)=>setLogIn(data))
 }
+console.log('login: ',logIn)
 
-    const initialState ={username:'', password:''}
-    const [formState, setFormState]=useState(initialState);
-    
 const handleChange = event =>{
         setFormState({...formState, 
                     [event.target.id]: 
@@ -32,11 +29,9 @@ const handleChange = event =>{
 const handleSubmit = event =>{
         event.preventDefault();
         setFormState(initialState)
-}
+};
 
-useEffect(()=>{
-     getUser();
-    },[])
+useEffect(()=>getUser(),[])
 
     return (
         <div>

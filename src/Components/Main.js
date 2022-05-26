@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Post from "../Routes/Post";
 import Home from "../Routes/Home"
 import User from "../Routes/User";
+import Createaccnt from "../Routes/Createaccnt";
 
 
 function Main(props) {
@@ -34,8 +35,21 @@ function Main(props) {
             },
 		        body: JSON.stringify(posts),
         });
+
+  
         getPosts();
     }; 
+    const createUser = async (users)=>{
+        await fetch (userURL, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(users)
+        });
+        
+        getUsers();
+    };
 
     useEffect(() => getUsers(), []);
     useEffect(() => getPosts(), []);
@@ -65,6 +79,13 @@ function Main(props) {
                         />
                     }
                 /> */}
+                <Route 
+                    path='/createaccount'
+                    element={<Createaccnt 
+                        users={users}
+                        createUser={createUser}
+                    />}
+                    />
             </Routes>
         </main>
     );
