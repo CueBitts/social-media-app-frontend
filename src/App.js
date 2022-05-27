@@ -11,8 +11,6 @@ function App() {
     <div className="App">
       <Header />
       <Main />
-      <h1>hi</h1>
-    
     <div>
       <Routes>
           <Route path='/createaccount' element={<Createaccnt />} />

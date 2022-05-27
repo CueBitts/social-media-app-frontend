@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import React from 'react'
+import {useEffect, useState} from 'react'
 import Header from '../Components/Header'
 import '../index.css'
 
@@ -21,6 +23,7 @@ const getUser = () => {
 }
 console.log('login: ',logIn)
 
+    
 const handleChange = event =>{
         setFormState({...formState, 
                     [event.target.id]: 
