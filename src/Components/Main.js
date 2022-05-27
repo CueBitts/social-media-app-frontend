@@ -51,6 +51,25 @@ function Main(props) {
         getUsers();
     };
 
+    const updateUser = async (users, id) =>{
+        await fetch (userURL + id, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(users)
+        });
+        getUsers()
+    };
+
+    const deleteUser = async (id) => {
+
+        await fetch (userURL + id, {
+            method: 'delete',
+        })
+        getUsers()
+    }
+
     useEffect(() => getUsers(), []);
     useEffect(() => getPosts(), []);
 

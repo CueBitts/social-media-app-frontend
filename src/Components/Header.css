@@ -1,7 +1,17 @@
 .header {
+    display: flex;
+    justify-content: space-around;
     padding: 8px;
     text-align: center;
     background: rgb(41, 40, 40);
     color: white;
     font-size: 15px;
   }
+
+  /* .headerLink {
+    color: white;
+    display: flex;
+   justify-content: right;
+ 
+
+  } */
