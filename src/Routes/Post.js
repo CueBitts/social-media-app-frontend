@@ -29,42 +29,43 @@ function Post(props) {
 
     const loaded = () => {
         return props.posts.map((post) => (
-                props.users.map((user) => (
-
-                <div key={post._id} className='post'>
-                    <div className="user-info">
-                    <Link to={`/users/${user._id}`}>
-                        <div className="info">
-                        <img className="profile-pic" src={user.profilePic} />
-                        <h4 className="name">{user.username}</h4>
-                        </div>
-                    </Link>
-                        <p className="date">{new Date(post.createdAt).getHours() + ":" + new Date(post.createdAt).getMinutes() + ", " + new Date(post.createdAt).toDateString()}</p>
-                    </div>
-                        <p className="post-text">{post.text}</p>
-                        <img className="post-pic" src={post.pic} />
-                        <div className="like-body fa-2x">
-                            <i className="heart">{post.likes}</i>
-                            <i className="comment"></i>
-                            <hr />
-                        </div>
-                        { post.comments.map((comment => {
-                            return(
-                                <div className="comments">
-                                <Link to={`/users/${user._id}`}> 
-                                    <div className="info"><img className="profile-pic" src={user.profilePic} /><h4 className="name">{user.username}</h4></div>
-                                </Link>  
-                                <h4>{comment.text}</h4>
+                props.users.map((user) => {
+                    return post.userId === user._id ? 
+                        <div key={post._id} className='post'>
+                            <div className="user-info">
+                            <Link to={`/users/${user._id}`}>
+                                <div className="info">
+                                <img className="profile-pic" src={user.profilePic} />
+                                <h4 className="name">{user.username}</h4>
                                 </div>
-                            )
-                        }))}
-                                <form>
-                                    <input className="comment-input" placeholder="Comment"></input>
-                                    <i className="send fa-2x"></i>
-                                </form>
-                </div>
-
-                ))
+                            </Link>
+                                <p className="date">{new Date(post.createdAt).getHours() + ":" + new Date(post.createdAt).getMinutes() + ", " + new Date(post.createdAt).toDateString()}</p>
+                            </div>
+                                <p className="post-text">{post.text}</p>
+                                <img className="post-pic" src={post.pic} />
+                                <div className="like-body fa-2x">
+                                    <i className="heart">{post.likes}</i>
+                                    <i className="comment"></i>
+                                    <hr />
+                                </div>
+                                { post.comments.map((comment => {
+                                    return(
+                                        <div className="comments">
+                                        <Link to={`/users/${user._id}`}> 
+                                            <div className="info"><img className="profile-pic" src={user.profilePic} /><h4 className="name">{user.username}</h4></div>
+                                        </Link>  
+                                        <h4>{comment.text}</h4>
+                                        </div>
+                                    )
+                                }))}
+                                        <form>
+                                            <input className="comment-input" placeholder="Comment"></input>
+                                            <i className="send fa-2x"></i>
+                                        </form>
+                        </div>
+                    :
+                        <></>
+                })
             )
         )
     }
