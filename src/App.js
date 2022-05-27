@@ -1,14 +1,18 @@
+import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom'
 
-import './App.css';
 import Header from './Components/Header';
-import Main from './Components/Main';
+import Posts from './Components/Posts';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <h1>hi</h1>
+      <Header/>
+      <Posts/>
     </div>
   );
 }

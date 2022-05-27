@@ -1,28 +1,47 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
-function Post() {
+const URL = 'http://localhost:4000'
+
+function Users() {
+    const [users, setUsers] = useState([])
+    useEffect(() => {
+        fetch(`${URL}/users`)
+            .then(res => res.json())
+            .then(json => {
+                setUsers(json)
+            })
+    }, [])
+}
+
+function getUserById(users, userId) {
+    users.forEach(user => {
+        if(userId = user)
+    })
+}
+
+function Posts() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        fetch('/posts')
+        fetch(`${URL}/posts`)
             .then(res => res.json())
             .then(json => {
                 setPosts(json)
             })
             .catch(console.error)
     }, [])
-    
+
     return(
         <section className='postContainer'>    
-            {posts.map(post => {    
+            {posts.map(post => {
                 return(
                     <div className='post'>
                         <span className='postHeader'>
                             <img className='profilePic'
-                                src={user.profilePic}
+                                src=''
                                 alt='profilePic'
                             />
-                            <p className='postUser'>{user.username}</p>
+                            <p className='postUser'>{post.userId}</p>
                             <p className='postTime'>Posted
                             {/* need function to figure this out */}
                             ago</p>
@@ -41,8 +60,8 @@ function Post() {
                                     {post.comments.map(comment => {
                                         return(
                                             <div className='comment'>
-                                                <Link to={`/${user.username}`} key={user.username}>{user.username}</Link>
-                                                <p className='commentText'>comment.text</p>
+                                                <Link to={`/`} key={''}></Link>
+                                                <p className='commentText'>{comment.text}</p>
                                             </div>
                                         )
                                     })}
@@ -56,4 +75,4 @@ function Post() {
     )
 }
 
-export default Post;
+export default Posts;
