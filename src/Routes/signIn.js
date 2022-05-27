@@ -1,5 +1,5 @@
 import React from 'react'
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import Header from '../Components/Header'
 import '../index.css'
 
@@ -20,9 +20,6 @@ const getUser = () => {
     .then(res=>res.json())
     .then(resp=>setLogIn(resp))
 }
-
-    const initialState ={username:'', password:''}
-    const [formState, setFormState]=useState(initialState);
     
 const handleChange = event =>{
         setFormState({...formState, 

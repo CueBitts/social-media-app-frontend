@@ -47,6 +47,7 @@ function Main(props) {
                     path='/posts' 
                     element={<Post
                         posts={posts} 
+                        users={users}
                         createPosts={createPosts} 
                     />} 
                 />
@@ -56,15 +57,15 @@ function Main(props) {
                         users={users} 
                     />} 
                 />
-                {/* <Route
-                    path="/posts/:id"
+                <Route
+                    path="/users/:id"
                     element={
                       
                         <Home
-                        posts={posts}
+                        users={users}
                         />
                     }
-                /> */}
+                />
             </Routes>
         </main>
     );

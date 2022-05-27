@@ -1,9 +1,9 @@
 import React from 'react'
 
-function anonymous() {
+function Anonymous() {
   return (
     <div>anonymous</div>
   )
 }
 
-export default anonymous
+export default Anonymous
