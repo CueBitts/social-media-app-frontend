@@ -4,6 +4,7 @@ import Post from "../Routes/Post";
 import Home from "../Routes/Home"
 import User from "../Routes/User";
 import Createaccnt from "../Routes/Createaccnt";
+import Updateuser from "../Routes/Updateuser";
 
 
 function Main(props) {
@@ -51,13 +52,14 @@ function Main(props) {
         getUsers();
     };
 
-    const updateUser = async (users, id) =>{
+    const updated = async (used, id) =>{
+        console.log('id: ',id)
         await fetch (userURL + id, {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(users)
+            body: JSON.stringify(used)
         });
         getUsers()
     };
@@ -90,12 +92,22 @@ function Main(props) {
                         users={users} 
                     />} 
                 />
+
+                 {/* <Route 
+                    path="/updateuser/:id"
+                    element={<Updateuser
+                        users={users}
+                        />
+                    } 
+                    /> */}
+
                 <Route
                     path="/users/:id"
                     element={
-                      
+                        
                         <Home
                         users={users}
+                        updated={updated} 
                         />
                     }
                 /> 

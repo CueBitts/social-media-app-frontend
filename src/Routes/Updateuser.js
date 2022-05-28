@@ -1,11 +1,20 @@
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {useParams} from 'react-router-dom'
+import '../index.css'
 
-function Home(props) {
-    console.log(props)
-    const { id } = useParams()
+function Updateuser(props) {
+    console.log('props-users:' ,props)
+
+    const {id} = useParams();
     const users = props.users
     const user = users.find(u => u._id === id)
+    
+
+    // console.log('users: ', users)
+    // console.log('user: ', user)
+    // console.log('id: ', id)
+
 
     const [formState, setFormState]=useState(user);
     
@@ -17,16 +26,12 @@ function Home(props) {
         event.preventDefault()
         props.updated(formState, id)
     }
-  
-    return (
-        <div className="post">
-          <h1>Show Page</h1>
-            <h2>{user.username}</h2>
-            <img class="profile-pic" src={user.profilePic}  />
 
-            <h2>{user.username}</h2>
+  return (
+   
+    <div>Update Account
 
-      {/* update user stuff added here */}
+        <h2>{user.username}</h2>
 
         <form className='form' onSubmit={handleSubmit}>
             
@@ -35,7 +40,7 @@ function Home(props) {
                 type="text"
                 value={formState.username} 
                 name='username'
-                
+                placeholder='username'
                 onChange={handleChange}
                 />
                 <br/>
@@ -59,14 +64,18 @@ function Home(props) {
                 />
                 <br/>
             
-             <input type="submit" value='Update Person'/> 
+             <input type="submit" value='Update Person'/>  
+
+            <div>
+              <p>Already have account?<Link className='signin' to ='/signin'> Sign In </Link></p>
+            </div>
 
         </form>
+             
+    </div>
+  )
+}
 
-        {/* update end */}
+export default Updateuser
 
-        </div>
-    )
-  }
 
-export default Home
