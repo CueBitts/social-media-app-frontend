@@ -1,17 +1,10 @@
-.header {
-    display: flex;
-    justify-content: space-around;
-    padding: 8px;
-    text-align: center;
+.header{
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: left;
     background: rgb(41, 40, 40);
     color: white;
     font-size: 15px;
   }
-
-  /* .headerLink {
-    color: white;
-    display: flex;
-   justify-content: right;
- 
-
-  } */
