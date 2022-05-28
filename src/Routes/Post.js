@@ -4,7 +4,6 @@ import './Post.css'
 
 
 function Post(props) {
-    // console.log(props.users)
     const [newForm, setNewForm] = useState({
             userId: "",
             text: "",
@@ -37,7 +36,7 @@ function Post(props) {
         return props.posts.map((post) => ( 
             <div key={post._id} className='post'>
                 <div className="user-info">
-                <Link to={`/users/${props.userId}`}>
+                <Link to={`/users/${post.userId}`}>
                     <div className="info">
                     <img className="profile-pic" src={getUserById(post.userId).profilePic} alt=''/>
                     <h4 className="name">{getUserById(post.userId).username}</h4>
