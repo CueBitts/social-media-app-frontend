@@ -8,7 +8,6 @@ function Post(props) {
             userId: "",
             text: "",
             pic: "",
-            comments: "",
     });
 
     const handleChange = (event) => {
@@ -17,12 +16,11 @@ function Post(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.createPost(newForm);
+        props.createPosts(newForm);
         setNewForm({
             userId: "",
             text: "",
             pic: "",
-            comments: "",
         });
     };
 
@@ -75,7 +73,7 @@ function Post(props) {
     }
 
     return (
-        <section>
+        <section className="comment-form">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -95,14 +93,7 @@ function Post(props) {
                     type="text"
                     value={newForm.pic}
                     name="pic"
-                    placeholder="pic"
-                    onChange={handleChange}
-                />
-                  <input
-                    type="text"
-                    value={newForm.comment}
-                    name="comment"
-                    placeholder="comment"
+                    placeholder="picture"
                     onChange={handleChange}
                 />
                 <input type="submit" value="Create Post" />

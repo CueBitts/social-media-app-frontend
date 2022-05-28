@@ -5,6 +5,9 @@ import Main from './Components/Main';
 import Createaccnt from './Routes/Createaccnt';
 import Signin from './Routes/SignIn'
 import{Routes, Route} from 'react-router-dom'
+import Sidebar from './Components/Sidebar';
+import News from './Routes/News';
+import Events from './Routes/Events';
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
       <Routes>
           <Route path='/createaccount' element={<Createaccnt />} />
           <Route path='/signin' element={<Signin />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/events' element={<Events />} />
           
       </Routes>
     </div>  

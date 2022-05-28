@@ -4,6 +4,8 @@ import Post from "../Routes/Post";
 import Home from "../Routes/Home"
 import User from "../Routes/User";
 import Createaccnt from "../Routes/Createaccnt";
+import News from "../Routes/News";
+import Sidebar from "./Sidebar";
 
 
 function Main(props) {
@@ -56,6 +58,7 @@ function Main(props) {
 
     return (
         <main>
+            <Sidebar />
             <Routes>
                 <Route 
                     path='/posts' 
