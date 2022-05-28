@@ -53,6 +53,26 @@ function Main(props) {
         getUsers();
     };
 
+    const updated = async (used, id) =>{
+        console.log('id: ',id)
+        await fetch (userURL + id, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(used)
+        });
+        getUsers()
+    };
+
+    const deleteUser = async (id) => {
+
+        await fetch (userURL + id, {
+            method: 'delete',
+        })
+        getUsers()
+    }
+
     useEffect(() => getUsers(), []);
     useEffect(() => getPosts(), []);
 
@@ -74,12 +94,22 @@ function Main(props) {
                         users={users} 
                     />} 
                 />
+
+                 {/* <Route 
+                    path="/updateuser/:id"
+                    element={<Updateuser
+                        users={users}
+                        />
+                    } 
+                    /> */}
+
                 <Route
                     path="/users/:id"
                     element={
-                      
+                        
                         <Home
                         users={users}
+                        updated={updated} 
                         />
                     }
                 /> 

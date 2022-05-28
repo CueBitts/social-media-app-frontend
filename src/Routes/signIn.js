@@ -9,55 +9,68 @@ function Signin() {
         password:'',
          }
 
-const [logIn, setLogIn]=useState('');
-const [formState, setFormState]=useState(initialState)
+    const [logIn, setLogIn]=useState('');
+    const [formState, setFormState]=useState(initialState)
+    const [namePw, setNamePw] = useState([])
 
-const url = "http://localhost:4000/users/"
+    // const url = "http://localhost:4000/users/"
 
-const getUser = () => {
-    fetch(url)
-    .then(res=>res.json())
-    .then((data)=>setLogIn(data))
-}
-console.log('login: ',logIn)
+    // const getUser = () => {
+    //     fetch(url)
+    //     .then(res=>res.json())
+    //     .then((data)=>setLogIn(data))
+    // }
+    // console.log('login: ',logIn)
+
 
     
-const handleChange = event =>{
+    
+    const handleChange = event =>{
         setFormState({...formState, 
-                    [event.target.id]: 
-                    event.target.value});
-}
-const handleSubmit = event =>{
+            [event.target.id]: 
+            event.target.value});
+        }
+        
+    const handleSubmit = async (event) =>{
         event.preventDefault();
-        setFormState(initialState)
-};
+        const user= await fetch('http://localhost:4000/users/signin',
+            {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formState)
+        });
+        console.log(user)
+        console.log(formState)
+    };
 
-useEffect(()=>getUser(),[])
-
-    return (
-        <div>
+        return (
+            <div>
             <h2 className='title'>Sign in here</h2>
-
-            <Header />
-      {/* formState.username==={logIn.username} && formState.password==={logIn.password}?handleSubmit:: ""  */}
-                   
-        <form className='form'> 
+ 
+            
+        <form className='form' onSubmit={handleSubmit}> 
             
             <label htmlFor="username">Username: </label>
             <input 
                 id="username" 
-                type="text"
+                type="username"
                 onChange={handleChange}
-                value={formState.username} />
-
+                value={formState.username} 
+                />
+            
                 {console.log(formState.username)}
+
             <label htmlFor="password">Password:</label>
             <input 
                 id="password" 
                 type="password"
                 onChange={handleChange}
-                value={formState.password} />
+                value={formState.password} 
+                />
                 <br/>
+                {console.log(formState.password)}
             
              <button type="submit">Login</button>   
              {/* <p>{formState.password===formState.passwordConfirm?"Confirmed" : "Retry"}</p> */}

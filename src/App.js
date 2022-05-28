@@ -16,7 +16,6 @@ function App() {
       <Main />
     <div>
       <Routes>
-          <Route path='/createaccount' element={<Createaccnt />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/news' element={<News />} />
           <Route path='/events' element={<Events />} />

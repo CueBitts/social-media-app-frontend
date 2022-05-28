@@ -5,11 +5,10 @@ import './Header.css'
 function Header() {
 
   return (
-    <div>
-        <Link to="/posts">
-            <div className="header">Social Media App</div>
-        </Link>
-        
+    <div className='header'> 
+        <Link to ='/signin'> Sign In </Link>
+        <Link to="/posts">Social Media App</Link>
+        <Link to ='/createaccount'> Create an Account </Link>
     </div>
   )
 }
