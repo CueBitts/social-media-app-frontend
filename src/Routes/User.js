@@ -17,6 +17,9 @@ function User(props) {
                                 </div>
                             )
                         }))} */}
+
+                    <Link className='signin' to ={`/users/${user._id}`}> View Account </Link>
+                        
                 </div>
             )
         )

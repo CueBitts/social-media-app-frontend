@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import '../index.css'
 
 function Createaccnt(props) {
@@ -10,6 +11,7 @@ function Createaccnt(props) {
              }
 
       const [formState, setFormState]=useState(initialState);
+      const navigate =useNavigate()
 
       const handleChange = event =>{
               setFormState({...formState,[event.target.id]:event.target.value});
@@ -18,6 +20,10 @@ function Createaccnt(props) {
               event.preventDefault();
               props.createUser(formState)
               setFormState(initialState)
+              navigate('/posts')
+              //fetch to retrieve from db with get (backend)
+              // if check username ====username && formdata. pasword ==== password in db){navigate()}
+
       }
 
   return (
