@@ -1,21 +1,33 @@
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function Home(props) {
     console.log(props)
+    const navigate=useNavigate()
     const { id } = useParams()
     const users = props.users
     const user = users.find(u => u._id === id)
+    console.log('this is user: ',user)
 
     const [formState, setFormState]=useState(user);
-    
-    const handleChange = event =>{
-            setFormState({...formState,[event.target.id]:event.target.value});
+
+
+    const updateForm=(value)=>{
+        return setFormState((prev)=>{
+            return {...prev, ...value};
+        })
     }
 
     const handleSubmit =(event)=>{
         event.preventDefault()
         props.updated(formState, id)
+        
+    }
+
+    const delUser =() => {
+        props.deleteUser(id)
+        navigate('/users')
     }
   
     return (
@@ -36,7 +48,7 @@ function Home(props) {
                 value={formState.username} 
                 name='username'
                 
-                onChange={handleChange}
+                onChange={(e)=>updateForm({username: e.target.value})}
                 />
                 <br/>
 
@@ -46,7 +58,7 @@ function Home(props) {
                 value={formState.profilePic} 
                 name='profilePic'
                 placeholder="profile picture" 
-                onChange={handleChange}
+                onChange={(e)=>updateForm({profilePic: e.target.value})}
                 />
 
             <label htmlFor="password">Password:</label>
@@ -55,13 +67,14 @@ function Home(props) {
                 value={formState.password} 
                 name="password" 
                 placeholder='password'
-                onChange={handleChange}
+                onChange={(e)=>updateForm({password: e.target.value})}
                 />
                 <br/>
             
              <input type="submit" value='Update Person'/> 
 
         </form>
+             <button type="button" onClick={delUser}>Delete user</button>
 
         {/* update end */}
 

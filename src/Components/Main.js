@@ -92,16 +92,8 @@ function Main(props) {
                     path='/users' 
                     element={<User
                         users={users} 
-                    />} 
-                />
-
-                 {/* <Route 
-                    path="/updateuser/:id"
-                    element={<Updateuser
-                        users={users}
+                        />} 
                         />
-                    } 
-                    /> */}
 
                 <Route
                     path="/users/:id"
@@ -110,6 +102,7 @@ function Main(props) {
                         <Home
                         users={users}
                         updated={updated} 
+                        deleteUser={deleteUser}
                         />
                     }
                 /> 
