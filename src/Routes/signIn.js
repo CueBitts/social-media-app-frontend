@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import Header from '../Components/Header'
+import { useNavigate } from 'react-router';
 import '../index.css'
 
 
 function Signin() {
+
+    const navigate = useNavigate()
     const initialState ={
         username:'', 
         password:'',
@@ -11,19 +14,7 @@ function Signin() {
 
     const [logIn, setLogIn]=useState('');
     const [formState, setFormState]=useState(initialState)
-    const [namePw, setNamePw] = useState([])
-
-    // const url = "http://localhost:4000/users/"
-
-    // const getUser = () => {
-    //     fetch(url)
-    //     .then(res=>res.json())
-    //     .then((data)=>setLogIn(data))
-    // }
-    // console.log('login: ',logIn)
-
-
-    
+    const [msg, setMsg] = useState('')
     
     const handleChange = event =>{
         setFormState({...formState, 
@@ -41,8 +32,16 @@ function Signin() {
         },
         body: JSON.stringify(formState)
         });
-        console.log(user)
-        console.log(formState)
+        const data= await user.json()
+        if(data.error){
+            setMsg(data.error)
+        } else if(data.message){
+            setMsg(data.message)
+            navigate('/posts')
+        }
+        
+        console.log('user:', user.json())
+        console.log(data)
     };
 
         return (
@@ -73,7 +72,7 @@ function Signin() {
                 {console.log(formState.password)}
             
              <button type="submit">Login</button>   
-             {/* <p>{formState.password===formState.passwordConfirm?"Confirmed" : "Retry"}</p> */}
+             <p>{msg}</p>
 
         </form>
     </div>

@@ -10,7 +10,9 @@ function Createaccnt(props) {
               password:'',
              }
 
+
       const [formState, setFormState]=useState(initialState);
+      const [dbCheck, setDbCheck] = useState('')
       const navigate =useNavigate()
 
       const handleChange = event =>{
@@ -24,6 +26,17 @@ function Createaccnt(props) {
               //fetch to retrieve from db with get (backend)
               // if check username ====username && formdata. pasword ==== password in db){navigate()}
 
+
+              // const userURL = "http://localhost:4000/users/";
+              // const getUser = () => {
+              //     fetch(userURL)
+              //     .then(response => response.json())
+              //     .then((result) => setDbCheck(result))
+              //   }
+              //   getUser()
+              //   if(dbCheck.username===username && dbCheck.password===password){
+              //     navigate()
+              //   }
       }
 
   return (
