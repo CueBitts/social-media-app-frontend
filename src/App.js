@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Createaccnt from './Routes/Createaccnt';
-import Signin from './Routes/SignIn'
+import Signin from './Routes/Signin'
 import{Routes, Route} from 'react-router-dom'
 import Sidebar from './Components/Sidebar';
 import News from './Routes/News';
