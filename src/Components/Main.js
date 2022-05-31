@@ -41,6 +41,17 @@ function Main(props) {
   
         getPosts();
     }; 
+
+    const updatePosts = async (posts, id) => {
+        await fetch(postURL + id, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(posts)
+        })
+        getPosts();
+    }
     const createUser = async (users)=>{
         await fetch (userURL, {
             method: 'post',
@@ -86,6 +97,7 @@ function Main(props) {
                         posts={posts} 
                         users={users}
                         createPosts={createPosts} 
+                        updatePosts={updatePosts}
                     />} 
                 />
                  <Route 

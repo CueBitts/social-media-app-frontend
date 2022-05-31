@@ -1,17 +1,37 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Post.css'
 
 
 function Post(props) {
+    console.log(props.posts[3].comments)
+    // const { id } = useParams()
+    // const comments = props.posts.comments[0]
+    // const comment = comments.find(comment => comment._id === id)
+
     const [newForm, setNewForm] = useState({
             userId: "",
             text: "",
             pic: "",
     });
 
+    const [newComment, setNewComment] = useState({
+        comments: [
+            {
+                userId: "",
+                text: ""
+            }
+        ]
+    })
+
+    console.log(newComment)
+
     const handleChange = (event) => {
         setNewForm({ ...newForm, [event.target.name]: event.target.value });
+    };
+
+    const handleChangeComment = (event) => {
+        setNewComment({ ...newComment, [event.target.name]: event.target.value });
     };
 
     const handleSubmit = (event) => {
@@ -24,9 +44,14 @@ function Post(props) {
         });
     };
 
+    const handleSubmitComments = (event) => {
+        event.preventDefault();
+        props.updatePosts(newComment);
+    };
+
     function getUserById(id) {
         var user = props.users.find(user => user._id === id)
-        console.log(user)
+        // console.log(user)
         return user
     }
 
@@ -60,10 +85,27 @@ function Post(props) {
                         </div>
                         )
                     }))}
+                    <section>
+
+
                     <form>
-                        <input className="comment-input" placeholder="Comment"></input>
-                        <i className="send fa-2x"></i>
+                        <input
+                            type="text"
+                            value={newComment.comments.userId}
+                            name="userId"
+                            placeholder="userId"
+                            onChange={handleChangeComment}
+                        />
+                        <input
+                            type="text"
+                            value={newComment.comments.text}
+                            name="text"
+                            placeholder="comment"
+                            onChange={handleChangeComment}
+                        />
+                        <input onSubmit={handleSubmitComments} type="submit" value="Create Comment" ></input>
                     </form>
+                    </section>
             </div>
         ))
     }
@@ -74,7 +116,7 @@ function Post(props) {
 
     return (
         <section className="comment-form">
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input
                     type="text"
                     value={newForm.userId}
@@ -96,7 +138,7 @@ function Post(props) {
                     placeholder="picture"
                     onChange={handleChange}
                 />
-                <input type="submit" value="Create Post" />
+                <input onSubmit={handleSubmit} type="submit" value="Create Post" />
             </form>
             {props.posts ? loaded() : loading()}
         </section>
