@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
@@ -103,8 +103,9 @@ function Main() {
         <main>
             <Sidebar />
             <Routes>
+                <Route path='/' element={<Navigate to='/all' replace/>}/>
                 <Route 
-                    path='/posts' 
+                    path='/all' 
                     element={<Post
                         posts={posts} 
                         users={users}
