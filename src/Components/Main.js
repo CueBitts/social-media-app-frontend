@@ -18,7 +18,7 @@ function Main() {
     const getPosts = () => {
         fetch(postURL)
         .then(response => response.json())
-        .then(result => setPosts(result))
+        .then(result => setPosts(result.reverse()))
     }
 
     const createPosts = async (posts) => {
