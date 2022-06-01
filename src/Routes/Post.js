@@ -14,7 +14,7 @@ function Post(props) {
     })
 
     const handleChange = (e) => {
-        setNewForm({ ...newForm, [e.target.name]: e.target.value })
+        setNewForm({ ...newForm, userId: JSON.parse(sessionStorage.signedIn)._id, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = (e) => {
@@ -35,7 +35,7 @@ function Post(props) {
     })
 
     const handleChangeComment = (e) => {
-        setNewComment({ ...newComment, [e.target.name]: e.target.value })
+        setNewComment({ ...newComment, userId: JSON.parse(sessionStorage.signedIn)._id, text: e.target.value})
     }
 
     const handleSubmitComment = (id) => (e) => {
@@ -93,13 +93,13 @@ function Post(props) {
                 }))}
                 <section>
                     <form>
-                        <input
+                        {/* <input
                             type="text"
                             name="userId"
                             placeholder="userId"
                             defaultValue={newComment.userId}
                             onChange={handleChangeComment}
-                        />
+                        /> */}
                         <input
                             type="text"
                             name="text"
@@ -117,13 +117,13 @@ function Post(props) {
     return (
         <section className="comment-form">
             <form>
-                <input
+                {/* <input
                     type="text"
                     name="userId"
                     placeholder="userId"
                     defaultValue={newForm.userId}
                     onChange={handleChange}
-                />
+                /> */}
                 <input
                     type="text"
                     name="text"
