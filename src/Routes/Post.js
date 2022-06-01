@@ -1,70 +1,74 @@
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import './Post.css'
+import {useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
+
+import './Post.css';
 
 
 function Post(props) {
-    console.log(props.posts[3].comments)
-    // const { id } = useParams()
-    // const comments = props.posts.comments[0]
-    // const comment = comments.find(comment => comment._id === id)
+
 
     const [newForm, setNewForm] = useState({
-            userId: "",
-            text: "",
-            pic: "",
-    });
-
-    const [newComment, setNewComment] = useState({
-        comments: [
-            {
-                userId: "",
-                text: ""
-            }
-        ]
+        userId: '',
+        text: '',
+        pic: ''
     })
 
-    console.log(newComment)
+    const handleChange = (e) => {
+        setNewForm({ ...newForm, [e.target.name]: e.target.value })
+    }
 
-    const handleChange = (event) => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value });
-    };
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.createPosts(newForm)
 
-    const handleChangeComment = (event) => {
-        setNewComment({ ...newComment, [event.target.name]: event.target.value });
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.createPosts(newForm);
         setNewForm({
-            userId: "",
-            text: "",
-            pic: "",
-        });
-    };
+            userId: '',
+            text: '',
+            pic: ''
+        })
+    }
 
-    const handleSubmitComments = (event) => {
-        event.preventDefault();
-        props.updatePosts(newComment);
-    };
 
-    function getUserById(id) {
+    const [newComment, setNewComment] = useState({
+        userId: '',
+        text: ''
+    })
+
+    const handleChangeComment = (e) => {
+        setNewComment({ ...newComment, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmitComment = (id) => (e) => {
+        e.preventDefault()
+        props.createComment(id, newComment)
+
+        setNewComment({
+            userId: '',
+            text: ''
+        })
+    }
+
+    
+    const getUserById = (id) => {
         var user = props.users.find(user => user._id === id)
-        // console.log(user)
         return user
     }
 
+
+    const loading = () => {
+        return <h1>Loading...</h1>
+    }
+    
     const loaded = () => {
-        return props.posts.map((post) => ( 
-            <div key={post._id} className='post'>
+        return props.posts.map(post => ( 
+            <div key={post._id} className="post">
                 <div className="user-info">
-                <Link to={`/users/${post.userId}`}>
-                    <div className="info">
-                    <img className="profile-pic" src={getUserById(post.userId).profilePic} alt=''/>
-                    <h4 className="name">{getUserById(post.userId).username}</h4>
-                    </div>
-                </Link>
+                    <Link to={`/users/${post.userId}`}>
+                        <div className="info">
+                            <img className="profile-pic" src={getUserById(post.userId).profilePic} alt=""/>
+                            <h4 className="name">{getUserById(post.userId).username}</h4>
+                        </div>
+                    </Link>
                     <p className="date">{new Date(post.createdAt).getHours() + ":" + new Date(post.createdAt).getMinutes() + ", " + new Date(post.createdAt).toDateString()}</p>
                 </div>
                 <p className="post-text">{post.text}</p>
@@ -74,44 +78,40 @@ function Post(props) {
                     <i className="comment"></i>
                     <hr />
                 </div>
-                { post.comments.map((comment => {
+                {post.comments.map((comment => {
                     return(
                         <div className="comments">
-                        <Link to={`/users/${post.userId}`}> 
-                            <div className="info"><img className="profile-pic" src = {getUserById(comment.userId).profilePic} alt=''/><h4 className="name">{getUserById(comment.userId).username}</h4>
-                        </div>
+                            <Link to={`/users/${comment.userId}`}> 
+                                <div className="info">
+                                    <img className="profile-pic" src = {getUserById(comment.userId).profilePic} alt=""/>
+                                    <h4 className="name">{getUserById(comment.userId).username}</h4>
+                                </div>
                             </Link>  
                             <h4>{comment.text}</h4>
                         </div>
-                        )
-                    }))}
-                    <section>
-
-
+                    )
+                }))}
+                <section>
                     <form>
                         <input
                             type="text"
-                            value={newComment.comments.userId}
                             name="userId"
                             placeholder="userId"
+                            defaultValue={newComment.userId}
                             onChange={handleChangeComment}
                         />
                         <input
                             type="text"
-                            value={newComment.comments.text}
                             name="text"
-                            placeholder="comment"
+                            placeholder="text"
+                            defaultValue={newComment.text}
                             onChange={handleChangeComment}
                         />
-                        <input onSubmit={handleSubmitComments} type="submit" value="Create Comment" ></input>
+                        <button type="button" onClick={handleSubmitComment(post._id)}>Post Comment</button>
                     </form>
-                    </section>
+                </section>
             </div>
         ))
-    }
-
-    const loading = () => {
-        return <h1>Loading.........</h1>
     }
 
     return (
@@ -119,30 +119,31 @@ function Post(props) {
             <form>
                 <input
                     type="text"
-                    value={newForm.userId}
                     name="userId"
                     placeholder="userId"
+                    defaultValue={newForm.userId}
                     onChange={handleChange}
                 />
                 <input
                     type="text"
-                    value={newForm.text}
                     name="text"
                     placeholder="text"
+                    defaultValue={newForm.text}
                     onChange={handleChange}
                 />
                 <input
                     type="text"
-                    value={newForm.pic}
                     name="pic"
                     placeholder="picture"
+                    defaultValue={newForm.pic}
                     onChange={handleChange}
                 />
-                <input onSubmit={handleSubmit} type="submit" value="Create Post" />
+                <button type="button" onClick={handleSubmit}>Post</button>
             </form>
+            
             {props.posts ? loaded() : loading()}
         </section>
     )
 }
 
-export default Post
+export default Post;

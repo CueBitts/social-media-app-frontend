@@ -1,91 +1,103 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {Routes, Route} from "react-router-dom";
+import Home from "../Routes/Home";
 import Post from "../Routes/Post";
-import Home from "../Routes/Home"
 import User from "../Routes/User";
 import Createaccnt from "../Routes/Createaccnt";
-import News from "../Routes/News";
 import Sidebar from "./Sidebar";
 
-
-function Main(props) {
-    const [posts, setPosts] = useState(null);
-    const [users, setUsers] = useState(null);
+import News from "../Routes/News";
 
 
-    const userURL = "http://localhost:4000/users/";
-    const postURL = "http://localhost:4000/posts/";
-
+function Main() {
     
+    
+    const postURL = 'http://localhost:4000/posts/'
+    const [posts, setPosts] = useState(null)
+
     const getPosts = () => {
         fetch(postURL)
         .then(response => response.json())
-        .then((result) => setPosts(result))
+        .then(result => setPosts(result))
     }
-    
-    const getUsers = () => {
-        fetch(userURL)
-        .then(response => response.json())
-        .then((result) => setUsers(result))
-    }
-    
+
     const createPosts = async (posts) => {
         await fetch(postURL, {
-            method: "post",
+            method: 'post',
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json'
             },
-		        body: JSON.stringify(posts),
-        });
-
-  
-        getPosts();
-    }; 
+		    body: JSON.stringify(posts)
+        })
+        getPosts()
+    }
 
     const updatePosts = async (posts, id) => {
-        await fetch(postURL + id, {
+        await fetch(`${postURL}${id}`, {
             method: 'put',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(posts)
         })
-        getPosts();
+        getPosts()
     }
-    const createUser = async (users)=>{
+
+    const createComment = async (id, comment) => {
+        await fetch(`${postURL}new-comment/${id}`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(comment)
+        })
+        getPosts()
+    }
+
+    useEffect(() => getPosts(), [])
+    
+    
+    const userURL = 'http://localhost:4000/users/'
+    const [users, setUsers] = useState(null)
+
+    const getUsers = () => {
+        fetch(userURL)
+        .then(response => response.json())
+        .then(result => setUsers(result))
+    }
+    
+    const createUser = async (users) => {
         await fetch (userURL, {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(users)
-        });
+        })
         
-        getUsers();
-    };
+        getUsers()
+    }
 
-    const updated = async (used, id) =>{
-        console.log('id: ',id)
-        await fetch (userURL + id, {
+    const updated = async (used, id) => {
+        await fetch (`${userURL}${id}`, {
             method: 'put',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(used)
-        });
-        getUsers()
-    };
-
-    const deleteUser = async (id) => {
-
-        await fetch (userURL + id, {
-            method: 'delete',
         })
         getUsers()
     }
 
-    useEffect(() => getUsers(), []);
-    useEffect(() => getPosts(), []);
+    const deleteUser = async (id) => {
+        await fetch (`${userURL}${id}`, {
+            method: 'delete'
+        })
+        getUsers()
+    }
+
+    useEffect(() => getUsers(), [])
+    
 
     return (
         <main>
@@ -96,27 +108,24 @@ function Main(props) {
                     element={<Post
                         posts={posts} 
                         users={users}
-                        createPosts={createPosts} 
+                        createPosts={createPosts}
                         updatePosts={updatePosts}
+                        createComment={createComment} 
                     />} 
                 />
-                 <Route 
+                <Route 
                     path='/users' 
                     element={<User
                         users={users} 
-                        />} 
-                        />
-
+                    />} 
+                />
                 <Route
-                    path="/users/:id"
-                    element={
-                        
-                        <Home
+                    path='/users/:id'
+                    element={<Home
                         users={users}
                         updated={updated} 
                         deleteUser={deleteUser}
-                        />
-                    }
+                    />}
                 /> 
                 <Route 
                     path='/createaccount'
@@ -124,7 +133,7 @@ function Main(props) {
                         users={users}
                         createUser={createUser}
                     />}
-                    />
+                />
             </Routes>
         </main>
     );
