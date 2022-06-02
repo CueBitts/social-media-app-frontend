@@ -64,15 +64,22 @@ a:hover {
     text-align: left;
   }
   
-  i:hover {
+  /* i:hover {
     color:#666;
-  }
+  } */
   
-  .heart:before {
+  .liked:before {
     font-family:fontawesome;
     content:'\f004';
     font-style:normal;
-
+    color: red;
+  }
+  
+  .unliked:before {
+    font-family:fontawesome;
+    content:'\f004';
+    font-style:normal;
+    color: white;
   }
 
   .comment:before{

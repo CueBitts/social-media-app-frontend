@@ -43,6 +43,28 @@ function Main() {
         getPosts()
     }
 
+    const like = async (id, userId) => {
+        await fetch(`${postURL}like/${id}`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userId)
+        })
+        getPosts()
+    }
+
+    const unlike = async (id, userId) => {
+        await fetch(`${postURL}unlike/${id}`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userId)
+        })
+        getPosts()
+    }
+
     const createComment = async (id, comment) => {
         await fetch(`${postURL}new-comment/${id}`, {
             method: 'post',
@@ -111,6 +133,8 @@ function Main() {
                         users={users}
                         createPosts={createPosts}
                         updatePosts={updatePosts}
+                        like={like}
+                        unlike={unlike}
                         createComment={createComment} 
                     />} 
                 />

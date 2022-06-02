@@ -28,6 +28,18 @@ function Post(props) {
         })
     }
 
+    
+    const handleLike = (id, likes) => (e) => {
+        e.preventDefault()
+
+        let userId = {userId: JSON.parse(sessionStorage.signedIn)._id}
+        
+        if(likes.find(like => like.userId === JSON.parse(sessionStorage.signedIn)._id)) {
+            props.unlike(id, userId)
+        } else {
+            props.like(id, userId)
+        }
+    }
 
     const [newComment, setNewComment] = useState({
         userId: '',
@@ -74,7 +86,10 @@ function Post(props) {
                 <p className="post-text">{post.text}</p>
                 <img className="post-pic" src={post.pic} alt=''/>
                 <div className="like-body fa-2x">
-                    <i className="heart">{post.likes}</i>
+                    <i 
+                        className={post.likes.find(like => like.userId === JSON.parse(sessionStorage.signedIn)._id) ? "liked" : "unliked"}
+                        type="button"
+                        onClick={handleLike(post._id, post.likes)}>{post.likes.length}</i>
                     <i className="comment"></i>
                     <hr />
                 </div>
