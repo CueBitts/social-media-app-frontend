@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router';
 
@@ -99,6 +100,9 @@ function Signin() {
                 {/* {console.log(formState.password)} */}
                 <button type='button' onClick={handleSubmit}>Log in</button>   
                 <p>{msg}</p>
+                <div>
+                    <p>Don't have an account?<Link className='createacct' to ='/createaccount'>Create one</Link></p>
+                </div>
             </form>
         </div>
     )
