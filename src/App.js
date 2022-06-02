@@ -38,10 +38,14 @@ import './App.css';
 function App() {
 
 
-  // const {token, setToken} = useToken()
-  // if(!token) {
-  //   return <Signin setToken={setToken}/>
-  // }
+  if(!sessionStorage.signedIn) {
+    return (
+      <div className="app">
+        <Header/>
+        <Signin/>
+      </div>
+    )
+  }
   
   return (
     <div className="App">

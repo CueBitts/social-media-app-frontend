@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import {Navigate} from 'react-router';
+import {useNavigate} from 'react-router';
 
 import Header from '../Components/Header'
 
@@ -42,7 +42,7 @@ function Signin() {
     }
         
     const [msg, setMsg] = useState()
-    // const {signedIn, setSignedIn} = useSignedIn
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         console.log('handleSubmit firing!')
@@ -62,6 +62,7 @@ function Signin() {
             } else {
                 setMsg('Sign in Successful')
                 sessionStorage.setItem('signedIn', JSON.stringify(result))
+                window.location.reload(false)
             }
         })
         .catch(error => {
