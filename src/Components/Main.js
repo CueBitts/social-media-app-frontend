@@ -121,7 +121,7 @@ function Main() {
     
 
     return (
-        <main>
+        <main className="main-container">
             <Sidebar />
             <Routes>
                 <Route path='/' element={<Navigate to='/all' replace/>}/>

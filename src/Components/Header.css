@@ -1,10 +1,35 @@
-.header{
+/* .header{
+    height: 30px;
+    width: 100%;
+    background: rgb(41, 40, 40);
+    padding: 15px;
+    display: flex;
+    text-align: right;
+    color: white;
+    font-size: 15px;
+    position: sticky;
+    top: 0;
+  } */
+
+
+  .header{
     position: fixed; 
     top: 0;
+    height: 90px;
     width: 100%;
-    padding: 15px;
     text-align: left;
     background: rgb(41, 40, 40);
     color: white;
     font-size: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .headerLinks{
+    display: flex;
+    flex-direction: column;
+  }
+  .userName{
+    display: flex;
+    flex-direction: column;
   }

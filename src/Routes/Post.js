@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom';
+import { FaBeer, AiOutlineSend } from 'react-icons/fa';
+
 
 import './Post.css';
 
@@ -72,6 +74,8 @@ function Post(props) {
     }
     
     const loaded = () => {
+
+        console.log(props.posts)
         return props.posts.map(post => ( 
             <div key={post._id} className="post">
                 <div className="user-info">
@@ -87,7 +91,7 @@ function Post(props) {
                 <img className="post-pic" src={post.pic} alt=''/>
                 <div className="like-body fa-2x">
                     <i 
-                        className={post.likes?.find(like => like.userId === JSON.parse(sessionStorage.signedIn)?._id) ? "liked" : "unliked"}
+                        className={post.likes?.find(like => like.userId === JSON.parse(sessionStorage.signedIn)._id) ? "liked" : "unliked"}
                         type="button"
                         onClick={handleLike(post._id, post.likes)}>{post.likes?.length}</i>
                     <i className="comment"></i>
@@ -95,7 +99,7 @@ function Post(props) {
                 </div>
                 {post.comments.map((comment => {
                     return(
-                        <div className="comments">
+                        <div key={comment._id} className="comments">
                             <Link to={`/users/${comment.userId}`}> 
                                 <div className="info">
                                     <img className="profile-pic" src = {getUserById(comment.userId)?.profilePic} alt=""/>
@@ -106,23 +110,16 @@ function Post(props) {
                         </div>
                     )
                 }))}
-                <section>
+                <section className="comments-input">
                     <form>
-                        {/* <input
-                            type="text"
-                            name="userId"
-                            placeholder="userId"
-                            defaultValue={newComment.userId}
-                            onChange={handleChangeComment}
-                        /> */}
-                        <input
+                        <input className="comment-form"
                             type="text"
                             name="text"
-                            placeholder="text"
+                            placeholder="Leave a commnet..."
                             defaultValue={newComment.text}
                             onChange={handleChangeComment}
                         />
-                        <button type="button" onClick={handleSubmitComment(post._id)}>Post Comment</button>
+                        <i className="send fa-2x" type="button" onClick={handleSubmitComment(post._id)}></i>
                     </form>
                 </section>
             </div>
@@ -130,34 +127,31 @@ function Post(props) {
     }
 
     return (
-        <section className="comment-form">
+        <div className="comment-forms">
+
+        <section >
             <form>
-                {/* <input
-                    type="text"
-                    name="userId"
-                    placeholder="userId"
-                    defaultValue={newForm.userId}
-                    onChange={handleChange}
-                /> */}
                 <input
+                    className="input-1"
                     type="text"
                     name="text"
-                    placeholder="text"
+                    placeholder="What's new? "
                     defaultValue={newForm.text}
                     onChange={handleChange}
                 />
                 <input
                     type="text"
                     name="pic"
-                    placeholder="picture"
+                    placeholder="Image"
                     defaultValue={newForm.pic}
                     onChange={handleChange}
                 />
-                <button type="button" onClick={handleSubmit}>Post</button>
+                <button className="post-button" type="button" onClick={handleSubmit}>Post</button>
             </form>
             
             {props.posts ? loaded() : loading()}
         </section>
+        </div>
     )
 }
 

@@ -78,8 +78,8 @@ function Signin() {
 
     return (
         <div>
-            <h2 className='title'>Sign in</h2>
             <form className='form'>
+            <h2 className='title'>Sign in</h2>
                 {/* <h2>Signed in: {JSON.parse(sessionStorage.signedIn).username}</h2> */}
                 <input
                     type="text"
