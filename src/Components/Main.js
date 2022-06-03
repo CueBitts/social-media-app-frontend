@@ -12,7 +12,7 @@ import News from "../Routes/News";
 function Main() {
     
     
-    const postURL = 'http://localhost:4000/posts/'
+    const postURL = 'https://social-media-appp-api.herokuapp.com/posts/'
     const [posts, setPosts] = useState(null)
 
     const getPosts = () => {
@@ -79,7 +79,7 @@ function Main() {
     useEffect(() => getPosts(), [])
     
     
-    const userURL = 'http://localhost:4000/users/'
+    const userURL = 'https://social-media-appp-api.herokuapp.com/users/'
     const [users, setUsers] = useState(null)
 
     const getUsers = () => {
@@ -122,7 +122,7 @@ function Main() {
     
 
     return (
-        <main>
+        <main className="main-container">
             <Sidebar />
             <Routes>
                 <Route path='/' element={<Navigate to='/all' replace/>}/>

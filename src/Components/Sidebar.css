@@ -17,7 +17,8 @@
 } */
 .sidebar {
     height: 600px;
-    width: 250px;
+    width: 100px;
+    min-width: 250px;
     position: sticky;
     top: 80px;
     left: 60px;
@@ -31,7 +32,11 @@
 .sidebar div{
     margin-bottom: 30px;
 }
+
+.main-container{
+    display: flex;
     
+}
    
       
 
