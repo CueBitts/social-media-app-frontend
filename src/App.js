@@ -4,7 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Sidebar from './Components/Sidebar';
-import Createaccnt from './Routes/Createaccnt';
+import Createaccnt from './Routes/Createacct';
 import Signin from './Routes/Signin';
 import News from './Routes/News';
 import Events from './Routes/Events';
