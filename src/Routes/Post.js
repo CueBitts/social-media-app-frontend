@@ -91,7 +91,7 @@ function Post(props) {
                 <img className="post-pic" src={post.pic} alt=''/>
                 <div className="like-body fa-2x">
                     <i 
-                        className={post.likes?.find(like => like.userId === JSON.parse(sessionStorage.signedIn)._id) ? "liked" : "unliked"}
+                        className={post.likes?.find(like => like.userId === JSON.parse(sessionStorage.signedIn)?._id) ? "liked" : "unliked"}
                         type="button"
                         onClick={handleLike(post._id, post.likes)}>{post.likes?.length}</i>
                     <i className="comment"></i>
