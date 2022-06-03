@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter} from "r
 import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
-import Createaccnt from "../Routes/Createacct";
+import Createaccnt from "../Routes/Createaccnt";
 import Sidebar from "./Sidebar";
 
 import News from "../Routes/News";
