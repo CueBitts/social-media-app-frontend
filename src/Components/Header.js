@@ -11,7 +11,7 @@ function Header() {
     <div className='header'>
 
       <div className='userName'>
-      <img className="profile-pic" src={JSON.parse(sessionStorage.signedIn)?.profilePic}/>
+      <img className="profile-pic" src={JSON.parse(sessionStorage.signedIn)?.profilePic} alt=''/>
       <h3 className="profile-name">{JSON.parse(sessionStorage.signedIn)?.username}</h3>
       </div>
       <Link to='/social-media-app-frontend/'><h2>SpaceBar</h2></Link>
