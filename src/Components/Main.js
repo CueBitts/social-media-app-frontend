@@ -3,7 +3,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
-import Createaccnt from "../Routes/Createaccnt";
+import Createaccnt from "../Routes/Createacct";
 import Sidebar from "./Sidebar";
 
 import News from "../Routes/News";
