@@ -3,11 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter} from "r
 import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
-<<<<<<< HEAD
-import Createaccnt from "../Routes/Createccnt";
-=======
 import Createaccnt from "../Routes/Createacct";
->>>>>>> dev
 import Sidebar from "./Sidebar";
 
 import News from "../Routes/News";
@@ -128,7 +124,7 @@ function Main() {
         <main className="main-container">
             {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
                 <Routes>
-                    <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/>
+                    {/* <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/> */}
                     <Route 
                         path='/social-media-app-frontend/all' 
                         element={<Post
