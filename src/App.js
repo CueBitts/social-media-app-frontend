@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './Components/Header';
 import Main from './Components/Main';
@@ -17,27 +17,32 @@ function App() {
 
   if(!sessionStorage.signedIn) {
     return (
-      <div className="app">
-        {/* <Header/> */}
-
+      <div className="App">
+        <Header/>
         <Signin/>
       </div>
     )
+  } else {
+
+    return (
+      <main className="App">
+        <Header/>
+        <Sidebar />
+        <Main/>
+        <Routes>
+          {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+            <Routes>
+              <Route path='/social-media-app-frontend/' element={<Main/>}/>
+              <Route path='/social-media-app-frontend/signin' element={<Signin/>}/>
+              <Route path='/social-media-app-frontend/news' element={<News/>}/>
+              <Route path='/social-media-app-frontend/events' element={<Events/>}/>
+            </Routes>
+          {/* </BrowserRouter> */}
+        </Routes>  
+      </main>
+    )
+  }
   }
   
-  return (
-    <main className="App">
-      <Header/>
-      <Sidebar />
-      <Main/>
-      <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path='/signin' element={<Signin/>}/>
-        <Route path='/news' element={<News/>}/>
-        <Route path='/events' element={<Events/>}/>
-      </Routes>  
-    </main>
-  )
-}
 
 export default App;

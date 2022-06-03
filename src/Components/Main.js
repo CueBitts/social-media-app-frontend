@@ -1,9 +1,13 @@
 import {useEffect, useState} from "react";
-import {Routes, Route, Navigate} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter} from "react-router-dom";
 import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
+<<<<<<< HEAD
 import Createaccnt from "../Routes/Createccnt";
+=======
+import Createaccnt from "../Routes/Createacct";
+>>>>>>> dev
 import Sidebar from "./Sidebar";
 
 import News from "../Routes/News";
@@ -122,42 +126,44 @@ function Main() {
 
     return (
         <main className="main-container">
-            <Routes>
-                <Route path='/' element={<Navigate to='/all' replace/>}/>
-                <Route 
-                    path='/all' 
-                    element={<Post
-                        posts={posts} 
-                        users={users}
-                        createPosts={createPosts}
-                        updatePosts={updatePosts}
-                        like={like}
-                        unlike={unlike}
-                        createComment={createComment} 
-                    />} 
-                />
-                <Route 
-                    path='/users' 
-                    element={<User
-                        users={users} 
-                    />} 
-                />
-                <Route
-                    path='/users/:id'
-                    element={<Home
-                        users={users}
-                        updated={updated} 
-                        deleteUser={deleteUser}
-                    />}
-                /> 
-                <Route 
-                    path='/createaccount'
-                    element={<Createaccnt 
-                        users={users}
-                        createUser={createUser}
-                    />}
-                />
-            </Routes>
+            {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+                <Routes>
+                    <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/>
+                    <Route 
+                        path='/social-media-app-frontend/all' 
+                        element={<Post
+                            posts={posts} 
+                            users={users}
+                            createPosts={createPosts}
+                            updatePosts={updatePosts}
+                            like={like}
+                            unlike={unlike}
+                            createComment={createComment} 
+                        />} 
+                    />
+                    <Route 
+                        path='/social-media-app-frontend/users' 
+                        element={<User
+                            users={users} 
+                        />} 
+                    />
+                    <Route
+                        path='/social-media-app-frontend/users/:id'
+                        element={<Home
+                            users={users}
+                            updated={updated} 
+                            deleteUser={deleteUser}
+                        />}
+                    /> 
+                    <Route 
+                        path='/social-media-app-frontend/createaccount'
+                        element={<Createaccnt 
+                            users={users}
+                            createUser={createUser}
+                        />}
+                    />
+                </Routes>
+            {/* </BrowserRouter> */}
         </main>
     );
 }
