@@ -89,7 +89,7 @@ function Post(props) {
                 </div>
                 <p className="post-text">{post.text}</p>
                 <img className="post-pic" src={post.pic} alt=''/>
-                <div className="like-body fa-2x">
+                <div className="like-body fa-lg">
                     <i 
                         className={post.likes?.find(like => like.userId === JSON.parse(sessionStorage.signedIn)?._id) ? "liked" : "unliked"}
                         type="button"
@@ -127,10 +127,10 @@ function Post(props) {
     }
 
     return (
-        <div className="comment-forms">
+        <div>
 
         <section >
-            <form>
+            <form  className="comment-forms">
                 <input
                     className="input-1"
                     type="text"

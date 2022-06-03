@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router';
 
+import '../index.css'
+
+
 import Header from '../Components/Header'
 
-import '../index.css'
 
 
 // const useSignedIn = () => {
@@ -64,6 +66,7 @@ function Signin() {
                 setMsg('Sign in Successful')
                 sessionStorage.setItem('signedIn', JSON.stringify(result))
                 window.location.reload(false)
+                navigate('/all')
             }
         })
         .catch(error => {
