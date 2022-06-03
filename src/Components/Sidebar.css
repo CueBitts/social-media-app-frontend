@@ -1,26 +1,9 @@
-/* .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-  }
 
-.sidebar div {
-        display: block;
-        color: rgb(211, 16, 16);
-        padding: 16px;
-        text-decoration: none;
-        float: left;
-} */
 .sidebar {
-    height: 600px;
-    width: 100px;
-    min-width: 250px;
+    height: 550px;
+    width: 260px;
     position: sticky;
-    top: 80px;
+    top: 160px;
     left: 60px;
     float: left;
     margin-top: 35px;

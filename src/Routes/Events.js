@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import './Events.css'
+
 
 function Events() {
 
@@ -19,17 +21,18 @@ function Events() {
         }, [])
         console.log(event)
     return (
-        <div className="news-container">
+        <div className="news-container-events">
                 {event.map((data, index) => {
                     return( 
-                        <div className="card">
+                        <div className="card-events">
                         <div>
-                        <div className='card_header'>
-                        <img src={data.images[0].url} className="card-image" width="210"></img>
+                        <div className='card_header-events'>
+                        <img src={data.images[0].url} className="card-image-events" width="210"></img>
                         </div>
                         <h4>{data.name}</h4>
                         <p>Type: {data.type}</p>
                         <h3>{data.dates.start.localDate}</h3>
+                        <a className='moreInfo' target="#" href={data.url}>More info</a>
                         </div>
             </div>
                     )

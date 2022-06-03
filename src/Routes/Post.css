@@ -6,8 +6,8 @@ body{
     background-color: rgb(41, 40, 40);
     margin:  auto;
     margin-top: 10px;
-    margin-right: 100px;
-    width: 60%;
+    margin-right: 120px;
+    width: 70%;
     border-radius: 10px;
     padding: 20px;
     color: white
@@ -17,6 +17,7 @@ body{
    
         max-width: 100%;
         height: auto;
+        margin-bottom: 10px;
   }
 
 .profile-pic {
@@ -111,8 +112,8 @@ a:hover {
     
   }
 
-.comment-form {
-  margin-top: 70px;
+.comment-forms {
+  margin-top: 150px;
 }
 
 .comment-forms input {
@@ -121,29 +122,28 @@ a:hover {
   background-color: rgb(41, 40, 40);
   border: 2px solid grey;
   padding: 12px 20px;
-  margin: 10px 20px 0 100px;
+  margin-top: 10px;
+  margin-right: 15px
   
 }
 
 .comment-forms button {
-
-
-    background-color: #383a38;
-    width: 50%;
+    background-color: rgb(228, 224, 224);
+    width: 5%;
     border: none;
-    margin-top: 15px;
-    margin-left: 85px;
-    color: white;
-    padding: 15px 32px;
+    border-radius: 3px;
+    color: rgb(41, 40, 40);;
+    padding: 10px 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  
+    margin-right: -60px;
 }
 
 hr {
   border: .5px solid rgb(182, 170, 170);
+  margin-top: 20px;
 }
 
 .comment-form{
@@ -164,6 +164,8 @@ hr {
 
 
 .user{
+  margin-top: 100px;
+  margin-left: 400px;
   color: white
 }
 

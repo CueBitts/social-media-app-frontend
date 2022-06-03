@@ -22,7 +22,7 @@ function Createaccnt(props) {
               event.preventDefault();
               props.createUser(formState)
               setFormState(initialState)
-              navigate('/posts')
+              navigate('/signin')
               //fetch to retrieve from db with get (backend)
               // if check username ====username && formdata. pasword ==== password in db){navigate()}
 
