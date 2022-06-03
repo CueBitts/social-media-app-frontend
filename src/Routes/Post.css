@@ -58,6 +58,7 @@ a:hover {
 
 .post-text {
     text-align: left;
+    color: white;
 }
   .like-body {
     margin:0 auto;
@@ -103,15 +104,65 @@ a:hover {
 
   .send:before {
     font-family:fontawesome;
-    content:'\f08e';
+    content:'\f1d8';
     font-style:normal;
-    margin-left: 30px;
+    margin-left: 20px;
+    
     
   }
 
 .comment-form {
-  margin-top: 70px
+  margin-top: 70px;
 }
+
+.comment-forms input {
+  width: 50%;
+  border-radius: 5px;
+  background-color: rgb(41, 40, 40);
+  border: 2px solid grey;
+  padding: 12px 20px;
+  margin: 10px 20px 0 100px;
+  
+}
+
+.comment-forms button {
+
+
+    background-color: #383a38;
+    width: 50%;
+    border: none;
+    margin-top: 15px;
+    margin-left: 85px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  
+}
+
+hr {
+  border: .5px solid rgb(182, 170, 170);
+}
+
+.comment-form{
+  width: 100%
+}
+
+.comments-input input{
+  width: 80%;
+  border-radius: 5px;
+  background-color: rgb(41, 40, 40);
+  border: 2px solid grey;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+.comments-input button{
+  background-color: rgb(201, 28, 28);
+}
+
+
 .user{
   color: white
 }
