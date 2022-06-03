@@ -7,7 +7,7 @@ function Header() {
     <div className='header'>
       {/* <h2>User: {JSON.parse(sessionStorage.signedIn).username}</h2> */}
       <Link to='/'>Social Media App - </Link>
-      <Link to={`/users/${JSON.parse(sessionStorage.signedIn)._id}`}>Profile - </Link>
+      {/* <Link to={`/users/${JSON.parse(sessionStorage.signedIn)?._id}`}>Profile - </Link> */}
       <Link to='/signin'>Sign In - </Link>
       <Link to='/createaccount'>Create an Account</Link>
     </div>
