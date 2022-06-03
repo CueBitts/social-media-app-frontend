@@ -5,16 +5,16 @@ import './Sidebar.css'
 function Sidebar() {
   return (
     <div className="sidebar">
-        <Link to="/all">
+        <Link to="/social-media-app-frontend/all">
                 <div>All</div>
         </Link>
-        <Link to="/following">
+        <Link to="/social-media-app-frontend/following">
                 <div>Following</div>
         </Link>
-        <Link to="/news">
+        <Link to="/social-media-app-frontend/news">
                 <div>News</div>
         </Link>
-        <Link to="/events">
+        <Link to="/social-media-app-frontend/events">
                 <div>Events</div>
         </Link>
     </div>

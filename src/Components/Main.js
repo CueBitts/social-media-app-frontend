@@ -125,7 +125,7 @@ function Main() {
             <Sidebar />
             {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
                 <Routes>
-                    <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/>
+                    {/* <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/> */}
                     <Route 
                         path='/social-media-app-frontend/all' 
                         element={<Post
