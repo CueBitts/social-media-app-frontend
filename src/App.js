@@ -4,7 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Sidebar from './Components/Sidebar';
-import Createaccnt from './Routes/Createaccnt';
+import Createaccnt from './Routes/Createccnt';
 import Signin from './Routes/Signin';
 import News from './Routes/News';
 import Events from './Routes/Events';
@@ -13,6 +13,18 @@ import './App.css';
 
 function App() {
 
+  
+
+  if(!sessionStorage.signedIn) {
+    return (
+      <div className="app">
+        {/* <Header/> */}
+
+        <Signin/>
+      </div>
+    )
+  }
+  
   return (
     <div className="App">
       <Header/>

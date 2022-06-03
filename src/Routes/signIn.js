@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Navigate} from 'react-router';
+import {useNavigate} from 'react-router';
+
+import '../Components/Sidebar.css';
+
 
 import Header from '../Components/Header'
 
-import '../index.css'
 
 
 // const useSignedIn = () => {
@@ -42,7 +45,7 @@ function Signin() {
     }
         
     const [msg, setMsg] = useState()
-    // const {signedIn, setSignedIn} = useSignedIn
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         console.log('handleSubmit firing!')
@@ -62,6 +65,8 @@ function Signin() {
             } else {
                 setMsg('Sign in Successful')
                 sessionStorage.setItem('signedIn', JSON.stringify(result))
+                window.location.reload(false)
+                navigate('/all')
             }
         })
         .catch(error => {
@@ -98,6 +103,9 @@ function Signin() {
                 {/* {console.log(formState.password)} */}
                 <button type='button' onClick={handleSubmit}>Log in</button>   
                 <p>{msg}</p>
+                <div>
+                    <p>Don't have an account?<Link className='createacct' to ='/createaccount'>Create one</Link></p>
+                </div>
             </form>
         </div>
     )

@@ -15,21 +15,38 @@
   .header{
     position: fixed; 
     top: 0;
-    height: 90px;
+    height: 97px;
     width: 100%;
     text-align: left;
     background: rgb(41, 40, 40);
     color: white;
     font-size: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+  
   }
   .headerLinks{
     display: flex;
     flex-direction: column;
+    margin: 0px 30px 0 0;
+    margin-right: 30px
   }
   .userName{
     display: flex;
     flex-direction: column;
+    margin-left: 50px;
   }
+
+.profile-pic-header {
+    width: 30px;
+    height: 30px;
+    border-radius: 90px;
+    object-fit: cover;
+    padding-top: 10px;
+    
+}
+
+.profile-name{
+  margin-left: -30px
+}
