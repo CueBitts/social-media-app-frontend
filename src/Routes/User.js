@@ -18,7 +18,7 @@ function User(props) {
                             )
                         }))} */}
 
-                    <Link className='signin' to ={`/users/${user._id}`}> View Account </Link>
+                    {/* <Link className='signin' to ={`/users/${user._id}`}> View Account </Link> */}
                         
                 </div>
             )
@@ -26,7 +26,7 @@ function User(props) {
     }
 
     const loading = () => {
-        return <h1>Loading.........</h1>
+        return <h1>Loading...</h1>
     }
     return ( <div>{props.users ? loaded() : loading()}</div>)
 }

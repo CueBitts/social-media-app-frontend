@@ -96,7 +96,6 @@ function Main() {
             },
             body: JSON.stringify(users)
         })
-        
         getUsers()
     }
 

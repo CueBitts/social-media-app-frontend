@@ -13,6 +13,16 @@ import './App.css';
 
 function App() {
 
+
+  if(!sessionStorage.signedIn) {
+    return (
+      <div className="app">
+        <Header/>
+        <Signin/>
+      </div>
+    )
+  }
+  
   return (
     <div className="App">
       <Header/>
