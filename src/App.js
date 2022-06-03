@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './Components/Header';
 import Main from './Components/Main';
@@ -16,7 +16,7 @@ function App() {
 
   if(!sessionStorage.signedIn) {
     return (
-      <div className="app">
+      <div className="App">
         <Header/>
         <Signin/>
       </div>
@@ -27,12 +27,14 @@ function App() {
     <div className="App">
       <Header/>
       <Main/>
-      <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path='/signin' element={<Signin/>}/>
-        <Route path='/news' element={<News/>}/>
-        <Route path='/events' element={<Events/>}/>
-      </Routes>  
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/signin' element={<Signin/>}/>
+          <Route path='/news' element={<News/>}/>
+          <Route path='/events' element={<Events/>}/>
+        </Routes>
+      </BrowserRouter>  
     </div>
   )
 }
