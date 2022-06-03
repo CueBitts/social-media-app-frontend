@@ -27,14 +27,14 @@ function App() {
     <div className="App">
       <Header/>
       <Main/>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
         <Routes>
-          <Route path='/' element={<Main/>}/>
-          <Route path='/signin' element={<Signin/>}/>
-          <Route path='/news' element={<News/>}/>
-          <Route path='/events' element={<Events/>}/>
+          <Route path='/social-media-app-frontend/' element={<Main/>}/>
+          <Route path='/social-media-app-frontend/signin' element={<Signin/>}/>
+          <Route path='/social-media-app-frontend/news' element={<News/>}/>
+          <Route path='/social-media-app-frontend/events' element={<Events/>}/>
         </Routes>
-      </BrowserRouter>  
+      {/* </BrowserRouter> */}
     </div>
   )
 }
