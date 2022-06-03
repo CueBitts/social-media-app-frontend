@@ -127,10 +127,10 @@ function Post(props) {
     }
 
     return (
-        <div className="comment-forms">
+        <div>
 
         <section >
-            <form>
+            <form  className="comment-forms">
                 <input
                     className="input-1"
                     type="text"

@@ -5,12 +5,25 @@ body{
 .post {
     background-color: rgb(41, 40, 40);
     margin:  auto;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-left: 400px;
     margin-right: 120px;
-    width: 70%;
+    width: 60%;
     border-radius: 10px;
     padding: 20px;
     color: white
+}
+
+.post-home{
+  background-color: rgb(41, 40, 40);
+  margin:  auto;
+  margin-top: 200px;
+  margin-left: 400px;
+  margin-right: 120px;
+  width: 60%;
+  border-radius: 10px;
+  padding: 20px;
+  color: white
 }
 
 .post-pic {
@@ -28,6 +41,11 @@ body{
       margin-top: 11px;
       
   }
+
+.profile-pic-home {
+  width: 200px;
+  height: 200px;
+}
 
 .user-info {
     text-align: left;
@@ -113,17 +131,20 @@ a:hover {
   }
 
 .comment-forms {
-  margin-top: 150px;
+  margin-top: 190px;
+  margin-left: 70px;
+
 }
 
 .comment-forms input {
-  width: 50%;
+  width: 25%;
   border-radius: 5px;
   background-color: rgb(41, 40, 40);
   border: 2px solid grey;
   padding: 12px 20px;
   margin-top: 10px;
-  margin-right: 15px
+  margin-right: -40px;
+  margin-left: 50px;
   
 }
 
@@ -136,9 +157,11 @@ a:hover {
     padding: 10px 12px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    position: absolute;
     font-size: 16px;
-    margin-right: -60px;
+    margin-left: 55px;
+    margin-top: 11px;
+    margin-right: -70px;
 }
 
 hr {
@@ -169,6 +192,6 @@ hr {
   color: white
 }
 
-  
- 
+
+
   

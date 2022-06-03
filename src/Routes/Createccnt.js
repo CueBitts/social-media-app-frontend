@@ -42,7 +42,7 @@ function Createaccnt(props) {
   return (
    
     <div>Create Account
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form form-create-user' onSubmit={handleSubmit}>
             
             <label htmlFor="username">Username: </label>
             <input 

@@ -6,17 +6,20 @@ import '../index.css'
 function Sidebar() {
   return (
     <div className="sidebar">
-        <Link to="/all">
-                <div>All</div>
+        <Link to={`/users/${JSON.parse(sessionStorage.signedIn)?._id}`}>
+                <div>Profile</div>
         </Link>
-        <Link to="/following">
-                <div>Following</div>
+        <Link to="/all">
+                <div>Posts</div>
         </Link>
         <Link to="/news">
                 <div>News</div>
         </Link>
         <Link to="/events">
                 <div>Events</div>
+        </Link>
+        <Link to="/following">
+                <div>Following</div>
         </Link>
     </div>
   )

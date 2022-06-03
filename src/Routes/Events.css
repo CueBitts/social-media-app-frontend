@@ -1,8 +1,8 @@
 
 
 .news-container-events {
-    margin-top: 158px;
-    margin-left: 50px;
+    margin-top: 190px;
+    margin-left: 350px;
     margin-right: 20px;
     display: grid;
     justify-content: center;
@@ -13,7 +13,7 @@
 
   .card-events {
     border: 1px black solid;
-    padding: 20px;
+    padding: 10px;
     margin-left: 20px;
     border-radius: 5px;
     object-fit: cover;

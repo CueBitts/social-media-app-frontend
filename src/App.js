@@ -26,8 +26,9 @@ function App() {
   }
   
   return (
-    <div className="App">
+    <main className="App">
       <Header/>
+      <Sidebar />
       <Main/>
       <Routes>
         <Route path='/' element={<Main/>}/>
@@ -35,7 +36,7 @@ function App() {
         <Route path='/news' element={<News/>}/>
         <Route path='/events' element={<Events/>}/>
       </Routes>  
-    </div>
+    </main>
   )
 }
 

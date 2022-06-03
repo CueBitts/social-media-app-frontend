@@ -23,7 +23,7 @@ function Header() {
   )
 } else {
   
-  // <Link to={`/users/${JSON.parse(sessionStorage.signedIn)?._id}`}>Profile </Link>
+ 
   return (
     <div className='header'>
 

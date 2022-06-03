@@ -1,8 +1,8 @@
 
 
 .news-container {
-    margin-top: 158px;
-    margin-left: 50px;
+    margin-top: 190px;
+    margin-left: 350px;
     margin-right: 20px;
     display: grid;
     justify-content: center;
@@ -13,11 +13,10 @@
 
   .card {
     border: 1px black solid;
-    padding: 20px;
+    padding: 10px;
     margin-left: 20px;
     border-radius: 5px;
     object-fit: cover;
-    /* display: flex; */
     justify-content: space-between;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 1em;

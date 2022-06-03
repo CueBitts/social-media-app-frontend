@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router';
 
-import '../Components/Sidebar.css';
+import '../index.css'
 
 
 import Header from '../Components/Header'

@@ -16,9 +16,10 @@ code {
   
   border: 2px solid rgb(49, 45, 38);
   margin: auto;
+  margin-top: 200px;
   max-width: 300px;
   text-align: left;
-  padding: 30px;
+  padding: 80px;
   background: white;
   color: black;
 }
@@ -42,13 +43,15 @@ code {
   display: inline-block;
   font-size: 16px;
 }
-/* 
-body{
-  background: url(/images/pexels-cottonbro-5052880.jpg) ;
-  background-size:50%;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
+
+.form-create-user{
+  margin-top: 180px;
+  margin-left: 500px
+}
+
+.form-profile {
+  margin-top: 10px
+}
 
 .title{
   color:red;
@@ -59,5 +62,41 @@ label, button, input, p {
 }
 .signin {
   color: red;
+}
+
+
+.sidebar {
+  height: 500px;
+  width: 260px;
+  position: fixed;
+  top: 160px;
+  left: 60px;
+  float: left;
+  margin-top: 35px;
+  padding-top: 40px;
+  background-color: rgb(41, 40, 40);
+  border-radius: 10px;
+  }
+
+.sidebar div{
+  margin-bottom: 30px;
+}
+
+.main-container{
+  display: flex;
+  
+}
+
+.delete-button {
+  background-color: rgb(180, 31, 31);
+  width: 14%;
+  border: none;
+  border-radius: 12px;
+  color: rgb(230, 224, 224);;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+ 
 }
 
