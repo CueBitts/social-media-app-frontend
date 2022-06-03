@@ -126,7 +126,7 @@ function Main() {
             <BrowserRouter basename={process.env.PUBLIC_URL}>    
                 <Routes>
                     <Route 
-                        path='/all' 
+                        path='/' 
                         element={<Post
                             posts={posts} 
                             users={users}
