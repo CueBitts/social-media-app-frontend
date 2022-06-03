@@ -125,8 +125,9 @@ function Main() {
             <Sidebar />
             <BrowserRouter basename={process.env.PUBLIC_URL}>    
                 <Routes>
+                    <Route path='/' element={<Navigate to='/all' replace/>}/>
                     <Route 
-                        path='/' 
+                        path='/all' 
                         element={<Post
                             posts={posts} 
                             users={users}
