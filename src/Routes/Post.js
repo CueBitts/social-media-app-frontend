@@ -75,7 +75,7 @@ function Post(props) {
     
     const loaded = () => {
 
-        console.log(props.posts)
+    console.log(props.posts)
         return props.posts.map(post => ( 
             <div key={post._id} className="post">
                 <div className="user-info">

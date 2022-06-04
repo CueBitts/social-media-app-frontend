@@ -22,14 +22,14 @@ function App() {
         <Signin/>
       </div>
     )
-  } else {
+  }
 
     return (
       <main className="App">
         <Header/>
         <Sidebar />
         <Main/>
-        <Routes>
+        
           {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
             <Routes>
               <Route path='/social-media-app-frontend/' element={<Main/>}/>
@@ -38,11 +38,11 @@ function App() {
               <Route path='/social-media-app-frontend/events' element={<Events/>}/>
             </Routes>
           {/* </BrowserRouter> */}
-        </Routes>  
+         
       </main>
     )
   }
-  }
+  
   
 
 export default App;
