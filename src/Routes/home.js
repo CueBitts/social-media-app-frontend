@@ -7,7 +7,7 @@ function Home(props) {
     const navigate=useNavigate()
     const { id } = useParams()
     const users = props.users
-    const user = users.find(u => u._id === id)
+    const user = users?.find(u => u._id === id)
     console.log('this is user: ',user)
 
     const [formState, setFormState]=useState(user);
@@ -31,21 +31,19 @@ function Home(props) {
     }
   
     return (
-        <div className="post">
-          <h1>Show Page</h1>
-            <h2>{user.username}</h2>
-            <img class="profile-pic" src={user.profilePic}  />
+        <div className="post-home">
+                <img class="profile-pic-home" src={user?.profilePic}  />
 
-            <h2>{user.username}</h2>
+            <h2>{user?.username}</h2>
 
       {/* update user stuff added here */}
 
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form form-profile' onSubmit={handleSubmit}>
             
             <label htmlFor="username">Username: </label>
             <input 
                 type="text"
-                value={formState.username} 
+                value={formState?.username} 
                 name='username'
                 
                 onChange={(e)=>updateForm({username: e.target.value})}
@@ -55,7 +53,7 @@ function Home(props) {
             <label htmlFor="profilePic">Profile Picture Link: </label>
             <input 
                 type="text"
-                value={formState.profilePic} 
+                value={formState?.profilePic} 
                 name='profilePic'
                 placeholder="profile picture" 
                 onChange={(e)=>updateForm({profilePic: e.target.value})}
@@ -64,7 +62,7 @@ function Home(props) {
             <label htmlFor="password">Password:</label>
             <input 
                 type="password"
-                value={formState.password} 
+                value={formState?.password} 
                 name="password" 
                 placeholder='password'
                 onChange={(e)=>updateForm({password: e.target.value})}
@@ -74,7 +72,7 @@ function Home(props) {
              <input type="submit" value='Update Person'/> 
 
         </form>
-             <button type="button" onClick={delUser}>Delete user</button>
+             <button className="delete-button" type="button" onClick={delUser}>Delete user</button>
 
         {/* update end */}
 

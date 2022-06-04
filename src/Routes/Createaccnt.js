@@ -22,7 +22,7 @@ function Createaccnt(props) {
               event.preventDefault();
               props.createUser(formState)
               setFormState(initialState)
-              navigate('/posts')
+              navigate('/signin')
               //fetch to retrieve from db with get (backend)
               // if check username ====username && formdata. pasword ==== password in db){navigate()}
 
@@ -42,7 +42,7 @@ function Createaccnt(props) {
   return (
    
     <div>Create Account
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form form-create-user' onSubmit={handleSubmit}>
             
             <label htmlFor="username">Username: </label>
             <input 

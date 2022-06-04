@@ -5,18 +5,32 @@ body{
 .post {
     background-color: rgb(41, 40, 40);
     margin:  auto;
-    margin-top: 10px;
-    margin-right: 100px;
+    margin-top: 20px;
+    margin-left: 400px;
+    margin-right: 120px;
     width: 60%;
     border-radius: 10px;
     padding: 20px;
     color: white
 }
 
+.post-home{
+  background-color: rgb(41, 40, 40);
+  margin:  auto;
+  margin-top: 200px;
+  margin-left: 400px;
+  margin-right: 120px;
+  width: 60%;
+  border-radius: 10px;
+  padding: 20px;
+  color: white
+}
+
 .post-pic {
    
         max-width: 100%;
         height: auto;
+        margin-bottom: 10px;
   }
 
 .profile-pic {
@@ -27,6 +41,11 @@ body{
       margin-top: 11px;
       
   }
+
+.profile-pic-home {
+  width: 200px;
+  height: 200px;
+}
 
 .user-info {
     text-align: left;
@@ -111,39 +130,43 @@ a:hover {
     
   }
 
-.comment-form {
-  margin-top: 70px;
+.comment-forms {
+  margin-top: 190px;
+  margin-left: 70px;
+
 }
 
 .comment-forms input {
-  width: 50%;
+  width: 25%;
   border-radius: 5px;
   background-color: rgb(41, 40, 40);
   border: 2px solid grey;
   padding: 12px 20px;
-  margin: 10px 20px 0 100px;
+  margin-top: 10px;
+  margin-right: -40px;
+  margin-left: 50px;
   
 }
 
 .comment-forms button {
-
-
-    background-color: #383a38;
-    width: 50%;
+    background-color: rgb(228, 224, 224);
+    width: 5%;
     border: none;
-    margin-top: 15px;
-    margin-left: 85px;
-    color: white;
-    padding: 15px 32px;
+    border-radius: 3px;
+    color: rgb(41, 40, 40);;
+    padding: 10px 12px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    position: absolute;
     font-size: 16px;
-  
+    margin-left: 55px;
+    margin-top: 11px;
+    margin-right: -70px;
 }
 
 hr {
   border: .5px solid rgb(182, 170, 170);
+  margin-top: 20px;
 }
 
 .comment-form{
@@ -164,9 +187,11 @@ hr {
 
 
 .user{
+  margin-top: 100px;
+  margin-left: 400px;
   color: white
 }
 
-  
- 
+
+
   

@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Space Bar Social Media App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This site will be a place to discuss events of all varieties, e.g. music, sports, farmers markets, etc.  There will be information for purchasing tickets if required. There will be a sidebar that will contain links to news and events.
 
-## Available Scripts
+ [Link to App](https://cuebitts.github.io/social-media-app-frontend).
+ [Link to Heroku backend](https://social-media-appp-api.herokuapp.com/).
 
-In the project directory, you can run:
+## MVP
 
-### `npm start`
+- Ability to view and update my profile information as well as view other user’s profiles.
+- Can connect with other users by posting something and being able to comment on other people’s posts.
+- Access to have a nav bar with main page, activities, and news.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Stretch Goals
+- Include a sign in page and links to other social medias like facebook and twitter. 
+- Ability to add emojis to add to comments.
+- Include like to add likes to posts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Coding Stles:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- HTML/CSS/JS
+- MONGODB/Mongoose
+- Express JS
+- React JS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Future Additions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Ability to add/manage multiple users to the site.
+- Add emojis to posts.

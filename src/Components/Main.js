@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter} from "r
 import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
-import Createaccnt from "../Routes/Createacct";
+import Createaccnt from "../Routes/Createaccnt";
 import Sidebar from "./Sidebar";
 
 import News from "../Routes/News";
@@ -122,12 +122,11 @@ function Main() {
 
     return (
         <main className="main-container">
-            <Sidebar />
-            <BrowserRouter basename={process.env.PUBLIC_URL}>    
+            {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
                 <Routes>
-                    <Route path='/' element={<Navigate to='/all' replace/>}/>
+                    {/* <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/> */}
                     <Route 
-                        path='/all' 
+                        path='/social-media-app-frontend/all' 
                         element={<Post
                             posts={posts} 
                             users={users}
@@ -139,13 +138,13 @@ function Main() {
                         />} 
                     />
                     <Route 
-                        path='/users' 
+                        path='/social-media-app-frontend/users' 
                         element={<User
                             users={users} 
                         />} 
                     />
                     <Route
-                        path='/users/:id'
+                        path='/social-media-app-frontend/users/:id'
                         element={<Home
                             users={users}
                             updated={updated} 
@@ -153,14 +152,14 @@ function Main() {
                         />}
                     /> 
                     <Route 
-                        path='/createaccount'
+                        path='/social-media-app-frontend/createaccount'
                         element={<Createaccnt 
                             users={users}
                             createUser={createUser}
                         />}
                     />
                 </Routes>
-            </BrowserRouter>
+            {/* </BrowserRouter> */}
         </main>
     );
 }
