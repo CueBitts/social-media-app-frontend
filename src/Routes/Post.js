@@ -1,39 +1,28 @@
 import {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import { FaBeer, AiOutlineSend } from 'react-icons/fa';
-
-
 import './Post.css';
-
-
 function Post(props) {
-
-
     const [newForm, setNewForm] = useState({
         userId: '',
         text: '',
         pic: ''
     })
-
     const handleChange = (e) => {
         setNewForm({ ...newForm, userId: JSON.parse(sessionStorage.signedIn)._id, [e.target.name]: e.target.value })
     }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         props.createPosts(newForm)
-
         setNewForm({
             userId: '',
             text: '',
             pic: ''
         })
     }
-
     
     const handleLike = (id, likes) => (e) => {
         e.preventDefault()
-
         let userId = {userId: JSON.parse(sessionStorage.signedIn)._id}
         
         if(likes.find(like => like.userId === JSON.parse(sessionStorage.signedIn)._id)) {
@@ -42,39 +31,31 @@ function Post(props) {
             props.like(id, userId)
         }
     }
-
     const [newComment, setNewComment] = useState({
         userId: '',
         text: ''
     })
-
     const handleChangeComment = (e) => {
         setNewComment({ ...newComment, userId: JSON.parse(sessionStorage.signedIn)._id, text: e.target.value})
     }
-
     const handleSubmitComment = (id) => (e) => {
         e.preventDefault()
         props.createComment(id, newComment)
-
         setNewComment({
             userId: '',
             text: ''
         })
     }
-
     
     const getUserById = (id) => {
         var user = props.users?.find(user => user._id === id)
         return user
     }
-
-
     const loading = () => {
         return <h1>Loading...</h1>
     }
     
     const loaded = () => {
-
     console.log(props.posts)
         return props.posts.map(post => ( 
             <div key={post._id} className="post">
@@ -125,10 +106,8 @@ function Post(props) {
             </div>
         ))
     }
-
     return (
         <div>
-
         <section >
             <form  className="comment-forms">
                 <input
@@ -154,5 +133,4 @@ function Post(props) {
         </div>
     )
 }
-
 export default Post;
