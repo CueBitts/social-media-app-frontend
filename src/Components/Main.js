@@ -1,37 +1,31 @@
 import {useEffect, useState} from "react";
 import {BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter} from "react-router-dom";
-import Home from "../Routes/Home";
 import Post from "../Routes/Post";
 import User from "../Routes/User";
-import Createaccnt from "../Routes/Createaccnt";
 import Sidebar from "./Sidebar";
-
 import News from "../Routes/News";
-
-
+import NewAccount from "../Routes/NewAccount";
+import HomePage from "../Routes/HomePage";
 function Main() {
     
     
     const postURL = 'https://social-media-appp-api.herokuapp.com/posts/'
     const [posts, setPosts] = useState(null)
-
     const getPosts = () => {
         fetch(postURL)
         .then(response => response.json())
         .then(result => setPosts(result.reverse()))
     }
-
     const createPosts = async (posts) => {
         await fetch(postURL, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-		    body: JSON.stringify(posts)
+            body: JSON.stringify(posts)
         })
         getPosts()
     }
-
     const updatePosts = async (posts, id) => {
         await fetch(`${postURL}${id}`, {
             method: 'put',
@@ -42,7 +36,6 @@ function Main() {
         })
         getPosts()
     }
-
     const like = async (id, userId) => {
         await fetch(`${postURL}like/${id}`, {
             method: 'post',
@@ -53,7 +46,6 @@ function Main() {
         })
         getPosts()
     }
-
     const unlike = async (id, userId) => {
         await fetch(`${postURL}unlike/${id}`, {
             method: 'post',
@@ -64,7 +56,6 @@ function Main() {
         })
         getPosts()
     }
-
     const createComment = async (id, comment) => {
         await fetch(`${postURL}new-comment/${id}`, {
             method: 'post',
@@ -75,13 +66,11 @@ function Main() {
         })
         getPosts()
     }
-
     useEffect(() => getPosts(), [])
     
     
     const userURL = 'https://social-media-appp-api.herokuapp.com/users/'
     const [users, setUsers] = useState(null)
-
     const getUsers = () => {
         fetch(userURL)
         .then(response => response.json())
@@ -98,7 +87,6 @@ function Main() {
         })
         getUsers()
     }
-
     const updated = async (used, id) => {
         await fetch (`${userURL}${id}`, {
             method: 'put',
@@ -109,24 +97,21 @@ function Main() {
         })
         getUsers()
     }
-
     const deleteUser = async (id) => {
         await fetch (`${userURL}${id}`, {
             method: 'delete'
         })
         getUsers()
     }
-
     useEffect(() => getUsers(), [])
     
-
     return (
         <main className="main-container">
             {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
                 <Routes>
                     {/* <Route path='/social-media-app-frontend/' element={<Navigate to='/social-media-app-frontend/all' replace/>}/> */}
                     <Route 
-                        path='/social-media-app-frontend/all' 
+                        path='/all' 
                         element={<Post
                             posts={posts} 
                             users={users}
@@ -138,22 +123,22 @@ function Main() {
                         />} 
                     />
                     <Route 
-                        path='/social-media-app-frontend/users' 
+                        path='/users' 
                         element={<User
                             users={users} 
                         />} 
                     />
                     <Route
-                        path='/social-media-app-frontend/users/:id'
-                        element={<Home
+                        path='/users/:id'
+                        element={<HomePage
                             users={users}
                             updated={updated} 
                             deleteUser={deleteUser}
                         />}
                     /> 
                     <Route 
-                        path='/social-media-app-frontend/createaccount'
-                        element={<Createaccnt 
+                        path='/createaccount'
+                        element={<NewAccount
                             users={users}
                             createUser={createUser}
                         />}
@@ -163,5 +148,4 @@ function Main() {
         </main>
     );
 }
-
 export default Main;
