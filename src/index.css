@@ -14,11 +14,12 @@ code {
   
   border: 2px solid rgb(49, 45, 38);
   margin: auto;
+  margin-left: 450px;
   margin-top: 200px;
   max-width: 300px;
   text-align: left;
   padding: 80px;
-  background: white;
+  background:white;
   color: black;
 }
 .form input {
@@ -120,4 +121,8 @@ label, button, input, p {
   content:'\f1ea';
   font-style:normal;
   
+}
+
+.bob{
+  background-color: purple;
 }

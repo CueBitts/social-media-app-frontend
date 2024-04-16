@@ -9,7 +9,9 @@ import HomePage from "../Routes/HomePage";
 function Main() {
     
     
-    const postURL = 'https://social-media-appp-api.herokuapp.com/posts/'
+    // const postURL = 'https://social-media-appp-api.herokuapp.com/posts/'
+    // const postURL = 'http://localhost:4000/posts/'
+    const postURL = 'https://spacebarback.onrender.com/posts'
     const [posts, setPosts] = useState(null)
     const getPosts = () => {
         fetch(postURL)
@@ -17,7 +19,7 @@ function Main() {
         .then(result => setPosts(result.reverse()))
     }
     const createPosts = async (posts) => {
-        await fetch(postURL, {
+        await fetch('https://spacebarback.onrender.com/posts', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -26,7 +28,7 @@ function Main() {
         })
         getPosts()
     }
-    const updatePosts = async (posts, id) => {
+    const updatePosts = async (posts,id) => {
         await fetch(`${postURL}${id}`, {
             method: 'put',
             headers: {
@@ -66,10 +68,11 @@ function Main() {
         })
         getPosts()
     }
-    useEffect(() => getPosts(), [])
+    // useEffect(() => getPosts(), [])
     
     
-    const userURL = 'https://social-media-appp-api.herokuapp.com/users/'
+    // const userURL = 'https://social-media-appp-api.herokuapp.com/users/'
+    const userURL = 'https://spacebarback.onrender.com/users/'
     const [users, setUsers] = useState(null)
     const getUsers = () => {
         fetch(userURL)
@@ -87,7 +90,7 @@ function Main() {
         })
         getUsers()
     }
-    const updated = async (used, id) => {
+    const updated = async (used,id) => {
         await fetch (`${userURL}${id}`, {
             method: 'put',
             headers: {
@@ -103,7 +106,7 @@ function Main() {
         })
         getUsers()
     }
-    useEffect(() => getUsers(), [])
+    useEffect(() => {getUsers();getPosts()}, [])
     
     return (
         <main className="main-container">

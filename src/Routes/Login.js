@@ -25,18 +25,19 @@ function LogIn() {
         password: ''
     })
    
-    
-    const handleChange = (e) => {
+   const handleChange = (e) => {
         console.log('handleChange firing!')
         setFormState({ ...formState, [e.target.name]: e.target.value })
     }
         
     const [msg, setMsg] = useState()
     const navigate = useNavigate()
+
     const handleSubmit = async (e) => {
         console.log('handleSubmit firing!')
         e.preventDefault()
-        await fetch('https://social-media-appp-api.herokuapp.com/users/signin', {
+        // await fetch('https://social-media-appp-api.herokuapp.com/users/signin', {
+        await fetch('http://localhost:4000/users/signin', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -60,12 +61,13 @@ function LogIn() {
         setFormState({
             username: '', 
             password: ''
-        })   
+        })  
+        
     }
     return (
         <div>
             <form className='form'>
-            <h2 className='title'>Sign in</h2>
+                <h2 className='title'>Sign in</h2>
                 {/* <h2>Signed in: {JSON.parse(sessionStorage.signedIn).username}</h2> */}
                 <input
                     type="text"

@@ -26,7 +26,7 @@ function HomePage(props) {
   
     return (
         <div className="post-home">
-                <img class="profile-pic-home" src={user?.profilePic}  />
+                <img className="profile-pic-home" src={user?.profilePic}  />
             <h2>{user?.username}</h2>
       {/* update user stuff added here */}
         <form className='form form-profile' onSubmit={handleSubmit}>

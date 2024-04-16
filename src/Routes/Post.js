@@ -9,9 +9,11 @@ function Post(props) {
         pic: ''
     })
     const handleChange = (e) => {
+        console.log(e.target.value)
         setNewForm({ ...newForm, userId: JSON.parse(sessionStorage.signedIn)._id, [e.target.name]: e.target.value })
     }
     const handleSubmit = (e) => {
+        console.log(e.target.value)
         e.preventDefault()
         props.createPosts(newForm)
         setNewForm({
@@ -70,14 +72,14 @@ function Post(props) {
                 </div>
                 <p className="post-text">{post.text}</p>
                 <img className="post-pic" src={post.pic} alt=''/>
-                <div className="like-body fa-lg">
+                {/* <div className="like-body fa-lg">
                     <i 
                         className={post.likes?.find(like => like.userId === JSON.parse(sessionStorage.signedIn)?._id) ? "liked" : "unliked"}
                         type="button"
                         onClick={handleLike(post._id, post.likes)}>{post.likes?.length}</i>
                     <i className="comment"></i>
                     <hr />
-                </div>
+                </div> */}
                 {post.comments.map((comment => {
                     return(
                         <div key={comment._id} className="comments">

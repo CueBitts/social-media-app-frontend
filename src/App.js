@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Navigate to='/signin' replace/>}/>
           <Route path='/signin' element={<LogIn/>}/>
-          <Route className="register-link" path='/createaccount'/>
+          <Route path='/createaccount'/>
         </Routes>
         {/* <AppPage/> */}
       </div>
@@ -35,8 +35,8 @@ function App() {
             <Routes>
               <Route path='/all' element={<Main/>}/>
               <Route path='/signin' element={<LogIn/>}/>
-              <Route path='/news' element={<News/>}/>
-              <Route path='/events' element={<Events/>}/>
+              {/* <Route path='/news' element={<News/>}/>
+              <Route path='/events' element={<Events/>}/> */}
             </Routes>
           {/* </BrowserRouter> */}
          

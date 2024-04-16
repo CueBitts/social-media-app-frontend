@@ -7,7 +7,7 @@ function Sidebar() {
         if(!sessionStorage.signedIn) {
                 return (
                         <div className="sidebar">
-                        <Link to={`/social-media-app-frontend/users/${JSON.parse(sessionStorage.signedIn)?._id}`}>
+                        <Link to={`/users/${JSON.parse(sessionStorage.signedIn)?._id}`}>
                                 <i className="profile fa-lg">Profile</i>
                         </Link>
                         <Link to="/all">
